@@ -1,0 +1,9 @@
+c:\users\paramartha saha\documents\visual studio 2015\Projects\BFME LAUNCHER\BFME LAUNCHER\bin\Debug\BFME LAUNCHER.exe.config
+c:\users\paramartha saha\documents\visual studio 2015\Projects\BFME LAUNCHER\BFME LAUNCHER\bin\Debug\BFME LAUNCHER.exe
+c:\users\paramartha saha\documents\visual studio 2015\Projects\BFME LAUNCHER\BFME LAUNCHER\bin\Debug\BFME LAUNCHER.pdb
+c:\users\paramartha saha\documents\visual studio 2015\Projects\BFME LAUNCHER\BFME LAUNCHER\obj\Debug\BFME LAUNCHER.csprojResolveAssemblyReference.cache
+c:\users\paramartha saha\documents\visual studio 2015\Projects\BFME LAUNCHER\BFME LAUNCHER\obj\Debug\BFME_LAUNCHER.Launcher.resources
+c:\users\paramartha saha\documents\visual studio 2015\Projects\BFME LAUNCHER\BFME LAUNCHER\obj\Debug\BFME_LAUNCHER.Properties.Resources.resources
+c:\users\paramartha saha\documents\visual studio 2015\Projects\BFME LAUNCHER\BFME LAUNCHER\obj\Debug\BFME LAUNCHER.csproj.GenerateResource.Cache
+c:\users\paramartha saha\documents\visual studio 2015\Projects\BFME LAUNCHER\BFME LAUNCHER\obj\Debug\BFME LAUNCHER.exe
+c:\users\paramartha saha\documents\visual studio 2015\Projects\BFME LAUNCHER\BFME LAUNCHER\obj\Debug\BFME LAUNCHER.pdb
