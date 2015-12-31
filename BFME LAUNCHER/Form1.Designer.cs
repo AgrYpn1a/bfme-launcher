@@ -47,7 +47,6 @@ namespace BFME_LAUNCHER
             this.EALogo = new System.Windows.Forms.PictureBox();
             this.T3A = new System.Windows.Forms.PictureBox();
             this.BFMETeam = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MainLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SelectedBG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Info)).BeginInit();
@@ -79,9 +78,10 @@ namespace BFME_LAUNCHER
             this.Play.Size = new System.Drawing.Size(144, 83);
             this.Play.TabIndex = 0;
             this.Play.UseVisualStyleBackColor = false;
-            this.Play.Click += new System.EventHandler(this.Play_Click_1);
+            this.Play.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Play_MouseDown);
             this.Play.MouseEnter += new System.EventHandler(this.Play_MouseEnter);
             this.Play.MouseLeave += new System.EventHandler(this.Play_MouseLeave);
+            this.Play.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Play_MouseUp);
             // 
             // MainLogo
             // 
@@ -139,7 +139,7 @@ namespace BFME_LAUNCHER
             this.SelectedBG.BackColor = System.Drawing.Color.Transparent;
             this.SelectedBG.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.bfme1Background;
             this.SelectedBG.ErrorImage = global::BFME_LAUNCHER.Properties.Resources.bfme1Background;
-            this.SelectedBG.Location = new System.Drawing.Point(165, 194);
+            this.SelectedBG.Location = new System.Drawing.Point(157, 172);
             this.SelectedBG.Margin = new System.Windows.Forms.Padding(0);
             this.SelectedBG.Name = "SelectedBG";
             this.SelectedBG.Size = new System.Drawing.Size(767, 327);
@@ -164,7 +164,7 @@ namespace BFME_LAUNCHER
             this.BFME1Pb.BackColor = System.Drawing.Color.Transparent;
             this.BFME1Pb.ErrorImage = null;
             this.BFME1Pb.InitialImage = null;
-            this.BFME1Pb.Location = new System.Drawing.Point(6, 188);
+            this.BFME1Pb.Location = new System.Drawing.Point(-2, 166);
             this.BFME1Pb.Margin = new System.Windows.Forms.Padding(0);
             this.BFME1Pb.Name = "BFME1Pb";
             this.BFME1Pb.Size = new System.Drawing.Size(155, 124);
@@ -175,7 +175,7 @@ namespace BFME_LAUNCHER
             // ROTWKPb
             // 
             this.ROTWKPb.BackColor = System.Drawing.Color.Transparent;
-            this.ROTWKPb.Location = new System.Drawing.Point(13, 414);
+            this.ROTWKPb.Location = new System.Drawing.Point(8, 385);
             this.ROTWKPb.Name = "ROTWKPb";
             this.ROTWKPb.Size = new System.Drawing.Size(155, 128);
             this.ROTWKPb.TabIndex = 13;
@@ -196,7 +196,7 @@ namespace BFME_LAUNCHER
             // BFME2Pb
             // 
             this.BFME2Pb.BackColor = System.Drawing.Color.Transparent;
-            this.BFME2Pb.Location = new System.Drawing.Point(10, 298);
+            this.BFME2Pb.Location = new System.Drawing.Point(3, 279);
             this.BFME2Pb.Name = "BFME2Pb";
             this.BFME2Pb.Size = new System.Drawing.Size(155, 128);
             this.BFME2Pb.TabIndex = 19;
@@ -208,7 +208,7 @@ namespace BFME_LAUNCHER
             this.SelectBFME1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SelectBFME1.ErrorImage = null;
             this.SelectBFME1.InitialImage = null;
-            this.SelectBFME1.Location = new System.Drawing.Point(4, 188);
+            this.SelectBFME1.Location = new System.Drawing.Point(-4, 166);
             this.SelectBFME1.Name = "SelectBFME1";
             this.SelectBFME1.Size = new System.Drawing.Size(157, 117);
             this.SelectBFME1.TabIndex = 20;
@@ -219,7 +219,7 @@ namespace BFME_LAUNCHER
             // 
             this.SelectBFME2.BackColor = System.Drawing.Color.Transparent;
             this.SelectBFME2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SelectBFME2.Location = new System.Drawing.Point(44, 318);
+            this.SelectBFME2.Location = new System.Drawing.Point(37, 299);
             this.SelectBFME2.Name = "SelectBFME2";
             this.SelectBFME2.Size = new System.Drawing.Size(115, 80);
             this.SelectBFME2.TabIndex = 21;
@@ -230,7 +230,7 @@ namespace BFME_LAUNCHER
             // 
             this.SelectROTWK.BackColor = System.Drawing.Color.Transparent;
             this.SelectROTWK.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SelectROTWK.Location = new System.Drawing.Point(13, 414);
+            this.SelectROTWK.Location = new System.Drawing.Point(8, 383);
             this.SelectROTWK.Name = "SelectROTWK";
             this.SelectROTWK.Size = new System.Drawing.Size(155, 128);
             this.SelectROTWK.TabIndex = 22;
@@ -240,11 +240,11 @@ namespace BFME_LAUNCHER
             // EALogo
             // 
             this.EALogo.BackColor = System.Drawing.Color.Transparent;
-            this.EALogo.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.ea;
             this.EALogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EALogo.Location = new System.Drawing.Point(165, 565);
+            this.EALogo.Image = global::BFME_LAUNCHER.Properties.Resources.ea;
+            this.EALogo.Location = new System.Drawing.Point(168, 547);
             this.EALogo.Name = "EALogo";
-            this.EALogo.Size = new System.Drawing.Size(69, 70);
+            this.EALogo.Size = new System.Drawing.Size(70, 69);
             this.EALogo.TabIndex = 24;
             this.EALogo.TabStop = false;
             this.EALogo.Click += new System.EventHandler(this.EALogo_Click);
@@ -254,7 +254,7 @@ namespace BFME_LAUNCHER
             this.T3A.BackColor = System.Drawing.Color.Transparent;
             this.T3A.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.t3a;
             this.T3A.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.T3A.Location = new System.Drawing.Point(14, 573);
+            this.T3A.Location = new System.Drawing.Point(12, 555);
             this.T3A.Name = "T3A";
             this.T3A.Size = new System.Drawing.Size(60, 47);
             this.T3A.TabIndex = 25;
@@ -264,44 +264,33 @@ namespace BFME_LAUNCHER
             // BFMETeam
             // 
             this.BFMETeam.BackColor = System.Drawing.Color.Transparent;
-            this.BFMETeam.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.bfmeteam;
+            this.BFMETeam.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BFMETeam.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BFMETeam.Location = new System.Drawing.Point(69, 554);
+            this.BFMETeam.Image = global::BFME_LAUNCHER.Properties.Resources.bfmeteam;
+            this.BFMETeam.Location = new System.Drawing.Point(72, 533);
             this.BFMETeam.Name = "BFMETeam";
-            this.BFMETeam.Size = new System.Drawing.Size(97, 94);
+            this.BFMETeam.Size = new System.Drawing.Size(93, 93);
             this.BFMETeam.TabIndex = 26;
             this.BFMETeam.TabStop = false;
             this.BFMETeam.Click += new System.EventHandler(this.BFMETeam_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Ringbearer", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(784, 623);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 20);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "desktop mode";
             // 
             // Launcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.mainBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(960, 660);
+            this.Controls.Add(this.T3A);
             this.Controls.Add(this.SelectROTWK);
             this.Controls.Add(this.SelectBFME2);
             this.Controls.Add(this.BFME2Pb);
             this.Controls.Add(this.ROTWKPb);
             this.Controls.Add(this.BFME1Pb);
             this.Controls.Add(this.SelectBFME1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.BFMETeam);
-            this.Controls.Add(this.T3A);
             this.Controls.Add(this.EALogo);
             this.Controls.Add(this.MainLogo);
             this.Controls.Add(this.Info);
@@ -310,11 +299,12 @@ namespace BFME_LAUNCHER
             this.Controls.Add(this.TitleBar);
             this.Controls.Add(this.SelectedBG);
             this.Controls.Add(this.Play);
+            this.ForeColor = System.Drawing.Color.Transparent;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Launcher";
             this.Text = "Form1";
-            this.TransparencyKey = System.Drawing.Color.Transparent;
+            this.TransparencyKey = System.Drawing.SystemColors.Control;
             this.Load += new System.EventHandler(this.Launcher_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MainLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SelectedBG)).EndInit();
@@ -329,7 +319,6 @@ namespace BFME_LAUNCHER
             ((System.ComponentModel.ISupportInitialize)(this.T3A)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BFMETeam)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -351,7 +340,6 @@ namespace BFME_LAUNCHER
         private System.Windows.Forms.PictureBox EALogo;
         private System.Windows.Forms.PictureBox T3A;
         private System.Windows.Forms.PictureBox BFMETeam;
-        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -19,20 +19,13 @@ namespace BFME_LAUNCHER
             InitializeComponent();
         }
 
-        private void Play_MouseHover(object sender, EventArgs e)
-        {
-            this.Play.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.PlayHover;
-        }
 
-        private void Play_MouseClick(object sender, MouseEventArgs e)
-        {
-            this.Play.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.PlayClicked;
-            //this.Play.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.PlayHover;
-        }
 
+        // PLAY BUTTON mouse events
+        // NOTE that I have switched PlayHover with PlayClicked because it looks better
         private void Play_MouseEnter(object sender, EventArgs e)
         {
-            this.Play.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.PlayHover;
+            this.Play.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.PlayClicked;
         }
 
         private void Play_MouseLeave(object sender, EventArgs e)
@@ -40,11 +33,18 @@ namespace BFME_LAUNCHER
             this.Play.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.Play;
         }
 
-        
+        private void Play_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.Play.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.PlayHover;
+        }
 
-      
+        private void Play_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.Play.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.PlayClicked;
+        }
 
-    
+
+
 
         private void Close_Click(object sender, EventArgs e)
         {
@@ -236,31 +236,24 @@ namespace BFME_LAUNCHER
             this.drag = false;
         }
 
+        
+        // Open up a link on specific logo click
         private void T3A_Click(object sender, EventArgs e)
         {
-            Process.Start("iexplore.exe", "https://forums.revora.net/");
+            Process.Start("https://forums.revora.net/");
         }
 
         private void BFMETeam_Click(object sender, EventArgs e)
         {
-            Process.Start("iexplore.exe", "https://www.facebook.com/thebfme/");
+            Process.Start("https://www.facebook.com/thebfme/");
         }
 
         private void EALogo_Click(object sender, EventArgs e)
         {
-            Process.Start("iexplore.exe", "https://help.ea.com/en/contact-us/new/");
+            Process.Start("https://help.ea.com/en/contact-us/new/");
         }
 
-        private void Play_Click_1(object sender, EventArgs e)
-        {
-            int i = 0;
-            do
-            {
-                i++;
-                this.Play.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.PlayClicked;
-            } while (i != 100);
-            this.Play.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.PlayHover;
-        }
+
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -271,5 +264,7 @@ namespace BFME_LAUNCHER
         {
 
         }
+
+
     }
 }
