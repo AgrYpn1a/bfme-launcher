@@ -101,6 +101,7 @@ namespace BFME_LAUNCHER
             this.Close.BackColor = System.Drawing.Color.Transparent;
             this.Close.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.quit;
             this.Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Close.Cursor = System.Windows.Forms.Cursors.Default;
             this.Close.FlatAppearance.BorderSize = 0;
             this.Close.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -120,6 +121,7 @@ namespace BFME_LAUNCHER
             this.Minimize.BackColor = System.Drawing.Color.Transparent;
             this.Minimize.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.min;
             this.Minimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Minimize.Cursor = System.Windows.Forms.Cursors.Default;
             this.Minimize.FlatAppearance.BorderSize = 0;
             this.Minimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Minimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -177,7 +179,7 @@ namespace BFME_LAUNCHER
             this.ROTWKPb.BackColor = System.Drawing.Color.Transparent;
             this.ROTWKPb.Location = new System.Drawing.Point(8, 385);
             this.ROTWKPb.Name = "ROTWKPb";
-            this.ROTWKPb.Size = new System.Drawing.Size(155, 128);
+            this.ROTWKPb.Size = new System.Drawing.Size(150, 128);
             this.ROTWKPb.TabIndex = 13;
             this.ROTWKPb.TabStop = false;
             this.ROTWKPb.Click += new System.EventHandler(this.ROTWKPb_Click);
@@ -219,9 +221,9 @@ namespace BFME_LAUNCHER
             // 
             this.SelectBFME2.BackColor = System.Drawing.Color.Transparent;
             this.SelectBFME2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SelectBFME2.Location = new System.Drawing.Point(37, 299);
+            this.SelectBFME2.Location = new System.Drawing.Point(4, 289);
             this.SelectBFME2.Name = "SelectBFME2";
-            this.SelectBFME2.Size = new System.Drawing.Size(115, 80);
+            this.SelectBFME2.Size = new System.Drawing.Size(148, 90);
             this.SelectBFME2.TabIndex = 21;
             this.SelectBFME2.TabStop = false;
             this.SelectBFME2.Click += new System.EventHandler(this.SelectBFME2_Click);
@@ -232,7 +234,7 @@ namespace BFME_LAUNCHER
             this.SelectROTWK.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SelectROTWK.Location = new System.Drawing.Point(8, 383);
             this.SelectROTWK.Name = "SelectROTWK";
-            this.SelectROTWK.Size = new System.Drawing.Size(155, 128);
+            this.SelectROTWK.Size = new System.Drawing.Size(146, 128);
             this.SelectROTWK.TabIndex = 22;
             this.SelectROTWK.TabStop = false;
             this.SelectROTWK.Click += new System.EventHandler(this.SelectROTWK_Click);
@@ -248,6 +250,8 @@ namespace BFME_LAUNCHER
             this.EALogo.TabIndex = 24;
             this.EALogo.TabStop = false;
             this.EALogo.Click += new System.EventHandler(this.EALogo_Click);
+            this.EALogo.MouseEnter += new System.EventHandler(this.EALogo_MouseEnter);
+            this.EALogo.MouseLeave += new System.EventHandler(this.EALogo_MouseLeave);
             // 
             // T3A
             // 
@@ -260,6 +264,8 @@ namespace BFME_LAUNCHER
             this.T3A.TabIndex = 25;
             this.T3A.TabStop = false;
             this.T3A.Click += new System.EventHandler(this.T3A_Click);
+            this.T3A.MouseEnter += new System.EventHandler(this.T3A_MouseEnter);
+            this.T3A.MouseLeave += new System.EventHandler(this.T3A_MouseLeave);
             // 
             // BFMETeam
             // 
@@ -273,6 +279,8 @@ namespace BFME_LAUNCHER
             this.BFMETeam.TabIndex = 26;
             this.BFMETeam.TabStop = false;
             this.BFMETeam.Click += new System.EventHandler(this.BFMETeam_Click);
+            this.BFMETeam.MouseEnter += new System.EventHandler(this.BFMETeam_MouseEnter);
+            this.BFMETeam.MouseLeave += new System.EventHandler(this.BFMETeam_MouseLeave);
             // 
             // Launcher
             // 

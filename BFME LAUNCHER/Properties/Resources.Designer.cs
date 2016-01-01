@@ -143,6 +143,16 @@ namespace BFME_LAUNCHER.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bfmeteamHover {
+            get {
+                object obj = ResourceManager.GetObject("bfmeteamHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap buttonBackgrounds {
             get {
                 object obj = ResourceManager.GetObject("buttonBackgrounds", resourceCulture);
@@ -156,6 +166,16 @@ namespace BFME_LAUNCHER.Properties {
         internal static System.Drawing.Bitmap ea {
             get {
                 object obj = ResourceManager.GetObject("ea", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eaHover {
+            get {
+                object obj = ResourceManager.GetObject("eaHover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -296,6 +316,16 @@ namespace BFME_LAUNCHER.Properties {
         internal static System.Drawing.Bitmap t3a {
             get {
                 object obj = ResourceManager.GetObject("t3a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap t3aHover {
+            get {
+                object obj = ResourceManager.GetObject("t3aHover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

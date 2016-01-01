@@ -155,6 +155,10 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="icon.ico" />
+    <None Include="Resources\t3aHover.png" />
+    <None Include="Resources\bfmeteamHover.png" />
+    <None Include="Resources\eaHover.png" />
+    <None Include="Resources\eaHover.bmp" />
     <None Include="Resources\bfmeRotwkActive.png" />
     <None Include="Resources\bfmeRotwkBackground.png" />
     <None Include="Resources\bfme2Background.png" />

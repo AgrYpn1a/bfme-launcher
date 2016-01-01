@@ -237,24 +237,71 @@ namespace BFME_LAUNCHER
         }
 
         
-        // Open up a link on specific logo click
+/*
+    ------------
+    |LOGO-LINKS| >>>>> BEGIN
+    ------------
+*/
+
+        // T3A mouse events
         private void T3A_Click(object sender, EventArgs e)
         {
             Process.Start("https://forums.revora.net/");
         }
 
+        private void T3A_MouseEnter(object sender, EventArgs e)
+        {
+            this.T3A.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.t3aHover;
+        }
+
+        private void T3A_MouseLeave(object sender, EventArgs e)
+        {
+            this.T3A.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.t3a;
+        }
+        // END T3A
+
+
+        // BFMETEAM mouse events
         private void BFMETeam_Click(object sender, EventArgs e)
         {
             Process.Start("https://www.facebook.com/thebfme/");
         }
 
+        private void BFMETeam_MouseEnter(object sender, EventArgs e)
+        {
+            this.BFMETeam.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.bfmeteamHover;
+        }
+
+        private void BFMETeam_MouseLeave(object sender, EventArgs e)
+        {
+            this.BFMETeam.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.bfmeteam;
+        }
+        // END BFMETEAM
+
+
+        // EA LOGO mouse events
         private void EALogo_Click(object sender, EventArgs e)
         {
             Process.Start("https://help.ea.com/en/contact-us/new/");
         }
 
+        private void EALogo_MouseEnter(object sender, EventArgs e)
+        {
+            this.EALogo.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.eaHover;
+        }
+
+        private void EALogo_MouseLeave(object sender, EventArgs e)
+        {
+            this.EALogo.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.ea;
+        }
+        // EA LOGO END
 
 
+/*
+------------
+|LOGO-LINKS| >>>>>>> END
+------------
+*/
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
