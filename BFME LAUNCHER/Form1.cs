@@ -151,24 +151,6 @@ namespace BFME_LAUNCHER
             this.BFME2Pb.BackgroundImage = null;
             this.ROTWKPb.BackgroundImage = null;
             this.SelectedBG.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.bfme1Background;
-
-            // GET notes
-            try
-            {
-                var request = WebRequest.Create("http://52.29.87.103:3000/files/news.png");
-
-                using (var response = request.GetResponse())
-                using (var stream = response.GetResponseStream())
-                {
-                    notesPictureBox.Image = Bitmap.FromStream(stream);
-                }
-            }
-            catch
-            {
-                MessageBox.Show("No internet connection!");
-            }
-
-
         }
 
 
@@ -393,6 +375,32 @@ namespace BFME_LAUNCHER
         private void checkBoxEmpty_Click(object sender, EventArgs e)
         {
             checkBoxChecked.BringToFront();
+        }
+        
+        // refresh button
+        private void refresh_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.refresh.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.refreshClicked;
+            // GET notes
+            try
+            {
+                var request = WebRequest.Create("http://52.29.87.103:3000/files/news.png");
+
+                using (var response = request.GetResponse())
+                using (var stream = response.GetResponseStream())
+                {
+                    notesPictureBox.Image = Bitmap.FromStream(stream);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("No internet connection!");
+            }
+        }
+
+        private void refresh_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.refresh.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.refresh;
         }
     }
 }

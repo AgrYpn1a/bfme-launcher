@@ -157,6 +157,10 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="icon.ico" />
+    <None Include="Resources\refreshClicked.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\updateClicked.png" />
+    <None Include="Resources\update.png" />
     <None Include="Resources\notesWindow.png" />
     <None Include="Resources\checkBoxEmpty.png" />
     <None Include="Resources\checkBoxChecked.png" />
