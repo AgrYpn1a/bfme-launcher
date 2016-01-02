@@ -48,6 +48,8 @@ namespace BFME_LAUNCHER
             this.T3A = new System.Windows.Forms.PictureBox();
             this.BFMETeam = new System.Windows.Forms.PictureBox();
             this.Install = new System.Windows.Forms.Button();
+            this.checkBoxEmpty = new System.Windows.Forms.PictureBox();
+            this.checkBoxChecked = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.MainLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SelectedBG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Info)).BeginInit();
@@ -60,6 +62,8 @@ namespace BFME_LAUNCHER
             ((System.ComponentModel.ISupportInitialize)(this.EALogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.T3A)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BFMETeam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBoxEmpty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBoxChecked)).BeginInit();
             this.SuspendLayout();
             // 
             // Play
@@ -75,6 +79,7 @@ namespace BFME_LAUNCHER
             this.Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Play.ForeColor = System.Drawing.Color.Transparent;
             this.Play.Location = new System.Drawing.Point(788, 535);
+            this.Play.Margin = new System.Windows.Forms.Padding(0);
             this.Play.Name = "Play";
             this.Play.Size = new System.Drawing.Size(144, 83);
             this.Play.TabIndex = 0;
@@ -302,14 +307,39 @@ namespace BFME_LAUNCHER
             this.Install.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Install.ForeColor = System.Drawing.Color.Transparent;
             this.Install.Location = new System.Drawing.Point(622, 553);
+            this.Install.Margin = new System.Windows.Forms.Padding(0);
             this.Install.Name = "Install";
             this.Install.Size = new System.Drawing.Size(143, 49);
-            this.Install.TabIndex = 28;
+            this.Install.TabIndex = 0;
             this.Install.UseVisualStyleBackColor = false;
             this.Install.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Install_MouseDown);
             this.Install.MouseEnter += new System.EventHandler(this.Install_MouseEnter);
             this.Install.MouseLeave += new System.EventHandler(this.Install_MouseLeave);
             this.Install.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Install_MouseUp);
+            // 
+            // checkBoxEmpty
+            // 
+            this.checkBoxEmpty.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxEmpty.Image = global::BFME_LAUNCHER.Properties.Resources.checkBoxEmpty;
+            this.checkBoxEmpty.Location = new System.Drawing.Point(913, 619);
+            this.checkBoxEmpty.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxEmpty.Name = "checkBoxEmpty";
+            this.checkBoxEmpty.Size = new System.Drawing.Size(27, 27);
+            this.checkBoxEmpty.TabIndex = 27;
+            this.checkBoxEmpty.TabStop = false;
+            this.checkBoxEmpty.Click += new System.EventHandler(this.checkBoxEmpty_Click);
+            // 
+            // checkBoxChecked
+            // 
+            this.checkBoxChecked.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxChecked.Image = global::BFME_LAUNCHER.Properties.Resources.checkBoxChecked;
+            this.checkBoxChecked.Location = new System.Drawing.Point(913, 619);
+            this.checkBoxChecked.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxChecked.Name = "checkBoxChecked";
+            this.checkBoxChecked.Size = new System.Drawing.Size(27, 27);
+            this.checkBoxChecked.TabIndex = 28;
+            this.checkBoxChecked.TabStop = false;
+            this.checkBoxChecked.Click += new System.EventHandler(this.checkBoxChecked_Click);
             // 
             // Launcher
             // 
@@ -320,6 +350,8 @@ namespace BFME_LAUNCHER
             this.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.mainBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(960, 660);
+            this.Controls.Add(this.checkBoxEmpty);
+            this.Controls.Add(this.checkBoxChecked);
             this.Controls.Add(this.Install);
             this.Controls.Add(this.T3A);
             this.Controls.Add(this.SelectROTWK);
@@ -356,6 +388,8 @@ namespace BFME_LAUNCHER
             ((System.ComponentModel.ISupportInitialize)(this.EALogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.T3A)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BFMETeam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBoxEmpty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkBoxChecked)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -379,6 +413,8 @@ namespace BFME_LAUNCHER
         private System.Windows.Forms.PictureBox T3A;
         private System.Windows.Forms.PictureBox BFMETeam;
         private System.Windows.Forms.Button Install;
+        private System.Windows.Forms.PictureBox checkBoxEmpty;
+        private System.Windows.Forms.PictureBox checkBoxChecked;
     }
 }
 

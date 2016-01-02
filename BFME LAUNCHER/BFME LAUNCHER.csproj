@@ -155,6 +155,8 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="icon.ico" />
+    <None Include="Resources\checkBoxEmpty.png" />
+    <None Include="Resources\checkBoxChecked.png" />
     <None Include="Resources\bfme1Hover.png" />
     <None Include="Resources\bfmeRotwkHover.png" />
     <None Include="Resources\bfme2Hover.png" />

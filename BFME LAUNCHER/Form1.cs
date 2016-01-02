@@ -346,6 +346,7 @@ namespace BFME_LAUNCHER
         private void SelectROTWK_MouseEnter(object sender, EventArgs e)
         {
             this.SelectROTWK.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.bfmeRotwkHover;
+            SelectROTWK.BringToFront();
         }
 
         private void SelectROTWK_MouseLeave(object sender, EventArgs e)
@@ -362,6 +363,17 @@ namespace BFME_LAUNCHER
         private void SelectBFME1_MouseLeave(object sender, EventArgs e)
         {
             this.SelectBFME1.BackgroundImage = null;
+        }
+
+        private void checkBoxChecked_Click(object sender, EventArgs e)
+        {
+            checkBoxEmpty.BringToFront();
+            
+        }
+
+        private void checkBoxEmpty_Click(object sender, EventArgs e)
+        {
+            checkBoxChecked.BringToFront();
         }
     }
 }
