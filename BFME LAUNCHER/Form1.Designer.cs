@@ -50,6 +50,7 @@ namespace BFME_LAUNCHER
             this.Install = new System.Windows.Forms.Button();
             this.checkBoxEmpty = new System.Windows.Forms.PictureBox();
             this.checkBoxChecked = new System.Windows.Forms.PictureBox();
+            this.notesPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.MainLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SelectedBG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Info)).BeginInit();
@@ -64,6 +65,7 @@ namespace BFME_LAUNCHER
             ((System.ComponentModel.ISupportInitialize)(this.BFMETeam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkBoxEmpty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkBoxChecked)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.notesPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Play
@@ -320,6 +322,7 @@ namespace BFME_LAUNCHER
             // checkBoxEmpty
             // 
             this.checkBoxEmpty.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxEmpty.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBoxEmpty.Image = global::BFME_LAUNCHER.Properties.Resources.checkBoxEmpty;
             this.checkBoxEmpty.Location = new System.Drawing.Point(913, 619);
             this.checkBoxEmpty.Margin = new System.Windows.Forms.Padding(0);
@@ -332,6 +335,7 @@ namespace BFME_LAUNCHER
             // checkBoxChecked
             // 
             this.checkBoxChecked.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxChecked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBoxChecked.Image = global::BFME_LAUNCHER.Properties.Resources.checkBoxChecked;
             this.checkBoxChecked.Location = new System.Drawing.Point(913, 619);
             this.checkBoxChecked.Margin = new System.Windows.Forms.Padding(0);
@@ -340,6 +344,17 @@ namespace BFME_LAUNCHER
             this.checkBoxChecked.TabIndex = 28;
             this.checkBoxChecked.TabStop = false;
             this.checkBoxChecked.Click += new System.EventHandler(this.checkBoxChecked_Click);
+            // 
+            // notesPictureBox
+            // 
+            this.notesPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.notesPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.notesPictureBox.Image = global::BFME_LAUNCHER.Properties.Resources.notesWindow;
+            this.notesPictureBox.Location = new System.Drawing.Point(668, 135);
+            this.notesPictureBox.Name = "notesPictureBox";
+            this.notesPictureBox.Size = new System.Drawing.Size(291, 379);
+            this.notesPictureBox.TabIndex = 29;
+            this.notesPictureBox.TabStop = false;
             // 
             // Launcher
             // 
@@ -350,6 +365,7 @@ namespace BFME_LAUNCHER
             this.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.mainBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(960, 660);
+            this.Controls.Add(this.notesPictureBox);
             this.Controls.Add(this.checkBoxEmpty);
             this.Controls.Add(this.checkBoxChecked);
             this.Controls.Add(this.Install);
@@ -367,8 +383,8 @@ namespace BFME_LAUNCHER
             this.Controls.Add(this.Minimize);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.TitleBar);
-            this.Controls.Add(this.SelectedBG);
             this.Controls.Add(this.Play);
+            this.Controls.Add(this.SelectedBG);
             this.ForeColor = System.Drawing.Color.Transparent;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -390,6 +406,7 @@ namespace BFME_LAUNCHER
             ((System.ComponentModel.ISupportInitialize)(this.BFMETeam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkBoxEmpty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkBoxChecked)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.notesPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -415,6 +432,7 @@ namespace BFME_LAUNCHER
         private System.Windows.Forms.Button Install;
         private System.Windows.Forms.PictureBox checkBoxEmpty;
         private System.Windows.Forms.PictureBox checkBoxChecked;
+        private System.Windows.Forms.PictureBox notesPictureBox;
     }
 }
 

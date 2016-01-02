@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -150,9 +151,20 @@ namespace BFME_LAUNCHER
             this.BFME2Pb.BackgroundImage = null;
             this.ROTWKPb.BackgroundImage = null;
             this.SelectedBG.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.bfme1Background;
+
+            // GET notes
+            var request = WebRequest.Create("http://52.29.87.103:3000/files/news.png");
+
+            using (var response = request.GetResponse())
+            using (var stream = response.GetResponseStream())
+            {
+                notesPictureBox.Image = Bitmap.FromStream(stream);
+            }
+
+
         }
 
-       
+
         private void Close_MouseEnter(object sender, EventArgs e)
         {
             this.Close.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.quitHover;

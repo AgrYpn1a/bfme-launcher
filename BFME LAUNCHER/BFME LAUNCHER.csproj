@@ -79,6 +79,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Ringbearer.TTF" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -126,6 +127,7 @@
     <None Include="Resources\main-bfme.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Ringbearer.TTF" />
     <None Include="Resources\t3a.png" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +157,7 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="icon.ico" />
+    <None Include="Resources\notesWindow.png" />
     <None Include="Resources\checkBoxEmpty.png" />
     <None Include="Resources\checkBoxChecked.png" />
     <None Include="Resources\bfme1Hover.png" />
