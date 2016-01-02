@@ -153,12 +153,19 @@ namespace BFME_LAUNCHER
             this.SelectedBG.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.bfme1Background;
 
             // GET notes
-            var request = WebRequest.Create("http://52.29.87.103:3000/files/news.png");
-
-            using (var response = request.GetResponse())
-            using (var stream = response.GetResponseStream())
+            try
             {
-                notesPictureBox.Image = Bitmap.FromStream(stream);
+                var request = WebRequest.Create("http://52.29.87.103:3000/files/news.png");
+
+                using (var response = request.GetResponse())
+                using (var stream = response.GetResponseStream())
+                {
+                    notesPictureBox.Image = Bitmap.FromStream(stream);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("No internet connection!");
             }
 
 
