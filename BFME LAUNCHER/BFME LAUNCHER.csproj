@@ -155,6 +155,15 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="icon.ico" />
+    <None Include="Resources\bfme1Hover.png" />
+    <None Include="Resources\bfmeRotwkHover.png" />
+    <None Include="Resources\bfme2Hover.png" />
+    <None Include="Resources\installHover.png" />
+    <None Include="Resources\installClicked.png" />
+    <None Include="Resources\install.png" />
+    <None Include="Resources\cursorDefault.ico" />
+    <None Include="Resources\cursorDefault.cur" />
+    <None Include="Resources\coursorDefault.png" />
     <None Include="Resources\t3aHover.png" />
     <None Include="Resources\bfmeteamHover.png" />
     <None Include="Resources\eaHover.png" />

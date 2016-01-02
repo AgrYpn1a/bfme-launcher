@@ -196,10 +196,31 @@
   <data name="bfmeteamHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bfmeteamHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cursorDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cursorDefault.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="eaHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eaHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="t3aHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\t3aHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bfme2Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bfme2Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="install" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\install.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="installClicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\installClicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="installHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\installHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bfmeRotwkHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bfmeRotwkHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bfme1Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bfme1Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

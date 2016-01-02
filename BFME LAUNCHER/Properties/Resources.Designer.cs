@@ -83,6 +83,16 @@ namespace BFME_LAUNCHER.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bfme1Hover {
+            get {
+                object obj = ResourceManager.GetObject("bfme1Hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bfme2Active {
             get {
                 object obj = ResourceManager.GetObject("bfme2Active", resourceCulture);
@@ -96,6 +106,16 @@ namespace BFME_LAUNCHER.Properties {
         internal static System.Drawing.Bitmap bfme2Background {
             get {
                 object obj = ResourceManager.GetObject("bfme2Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bfme2Hover {
+            get {
+                object obj = ResourceManager.GetObject("bfme2Hover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,6 +153,16 @@ namespace BFME_LAUNCHER.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bfmeRotwkHover {
+            get {
+                object obj = ResourceManager.GetObject("bfmeRotwkHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bfmeteam {
             get {
                 object obj = ResourceManager.GetObject("bfmeteam", resourceCulture);
@@ -157,6 +187,16 @@ namespace BFME_LAUNCHER.Properties {
             get {
                 object obj = ResourceManager.GetObject("buttonBackgrounds", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon cursorDefault {
+            get {
+                object obj = ResourceManager.GetObject("cursorDefault", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -186,6 +226,36 @@ namespace BFME_LAUNCHER.Properties {
         internal static System.Drawing.Bitmap info {
             get {
                 object obj = ResourceManager.GetObject("info", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap install {
+            get {
+                object obj = ResourceManager.GetObject("install", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap installClicked {
+            get {
+                object obj = ResourceManager.GetObject("installClicked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap installHover {
+            get {
+                object obj = ResourceManager.GetObject("installHover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

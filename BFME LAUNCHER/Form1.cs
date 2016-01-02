@@ -20,7 +20,6 @@ namespace BFME_LAUNCHER
         }
 
 
-
         // PLAY BUTTON mouse events
         // NOTE that I have switched PlayHover with PlayClicked because it looks better
         private void Play_MouseEnter(object sender, EventArgs e)
@@ -144,9 +143,9 @@ namespace BFME_LAUNCHER
             SelectBFME1.Visible = false;
             SelectBFME2.Visible = true;
             SelectROTWK.Visible = true;
-            BFME1Pb.BringToFront();
             SelectBFME2.BringToFront();
             SelectROTWK.BringToFront();
+            BFME1Pb.BringToFront();
             this.BFME1Pb.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.bfme1Active;
             this.BFME2Pb.BackgroundImage = null;
             this.ROTWKPb.BackgroundImage = null;
@@ -313,7 +312,59 @@ namespace BFME_LAUNCHER
         }
 
 
+        // INSTALL mouse events
+        private void Install_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.Install.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.installClicked;
+        }
+
+        private void Install_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.Install.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.installHover;
+        }
+
+        private void Install_MouseLeave(object sender, EventArgs e)
+        {
+            this.Install.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.install;
+        }
+
+        private void Install_MouseEnter(object sender, EventArgs e)
+        {
+            this.Install.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.installHover;
+        }
+
+        private void SelectBFME2_MouseEnter(object sender, EventArgs e)
+        {
+            this.SelectBFME2.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.bfme2Hover;
+        }
+
+        private void SelectBFME2_MouseLeave(object sender, EventArgs e)
+        {
+            this.SelectBFME2.BackgroundImage = null;
+        }
+
+        private void SelectROTWK_MouseEnter(object sender, EventArgs e)
+        {
+            this.SelectROTWK.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.bfmeRotwkHover;
+        }
+
+        private void SelectROTWK_MouseLeave(object sender, EventArgs e)
+        {
+            this.SelectROTWK.BackgroundImage = null;
+        }
+
+        private void SelectBFME1_MouseEnter(object sender, EventArgs e)
+        {
+            this.SelectBFME1.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.bfme1Hover;
+
+        }
+
+        private void SelectBFME1_MouseLeave(object sender, EventArgs e)
+        {
+            this.SelectBFME1.BackgroundImage = null;
+        }
     }
 }
 
 // This comment should not be changed
+
