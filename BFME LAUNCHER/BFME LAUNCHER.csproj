@@ -157,6 +157,9 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="icon.ico" />
+    <None Include="Resources\bfmeProfile.jpg" />
+    <None Include="Resources\updateHover.png" />
+    <None Include="Resources\version.png" />
     <None Include="Resources\refreshClicked.png" />
     <None Include="Resources\refresh.png" />
     <None Include="Resources\updateClicked.png" />
@@ -181,6 +184,12 @@
     <None Include="Resources\bfmeRotwkBackground.png" />
     <None Include="Resources\bfme2Background.png" />
     <None Include="Resources\bfme2Active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpUpdate\BfmeUpdate.csproj">
+      <Project>{3c53553f-ff5f-4191-ad70-1693b4c8500b}</Project>
+      <Name>BfmeUpdate</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

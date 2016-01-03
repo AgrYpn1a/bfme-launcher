@@ -52,6 +52,8 @@ namespace BFME_LAUNCHER
             this.checkBoxChecked = new System.Windows.Forms.PictureBox();
             this.notesPictureBox = new System.Windows.Forms.PictureBox();
             this.refresh = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.update = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MainLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SelectedBG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Info)).BeginInit();
@@ -67,6 +69,7 @@ namespace BFME_LAUNCHER
             ((System.ComponentModel.ISupportInitialize)(this.checkBoxEmpty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkBoxChecked)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.notesPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Play
@@ -309,7 +312,7 @@ namespace BFME_LAUNCHER
             this.Install.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Install.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Install.ForeColor = System.Drawing.Color.Transparent;
-            this.Install.Location = new System.Drawing.Point(622, 553);
+            this.Install.Location = new System.Drawing.Point(632, 569);
             this.Install.Margin = new System.Windows.Forms.Padding(0);
             this.Install.Name = "Install";
             this.Install.Size = new System.Drawing.Size(143, 49);
@@ -377,6 +380,41 @@ namespace BFME_LAUNCHER
             this.refresh.MouseDown += new System.Windows.Forms.MouseEventHandler(this.refresh_MouseDown);
             this.refresh.MouseUp += new System.Windows.Forms.MouseEventHandler(this.refresh_MouseUp);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.version;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 629);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(61, 17);
+            this.pictureBox1.TabIndex = 31;
+            this.pictureBox1.TabStop = false;
+            // 
+            // update
+            // 
+            this.update.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.update.BackColor = System.Drawing.Color.Transparent;
+            this.update.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.update;
+            this.update.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.update.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.update.FlatAppearance.BorderSize = 0;
+            this.update.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.update.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.update.ForeColor = System.Drawing.Color.Transparent;
+            this.update.Location = new System.Drawing.Point(693, 534);
+            this.update.Margin = new System.Windows.Forms.Padding(0);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(79, 27);
+            this.update.TabIndex = 32;
+            this.update.TabStop = false;
+            this.update.UseVisualStyleBackColor = false;
+            this.update.MouseDown += new System.Windows.Forms.MouseEventHandler(this.update_MouseDown);
+            this.update.MouseEnter += new System.EventHandler(this.update_MouseEnter);
+            this.update.MouseLeave += new System.EventHandler(this.update_MouseLeave);
+            this.update.MouseUp += new System.Windows.Forms.MouseEventHandler(this.update_MouseUp);
+            // 
             // Launcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,6 +424,8 @@ namespace BFME_LAUNCHER
             this.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.mainBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(960, 660);
+            this.Controls.Add(this.update);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.refresh);
             this.Controls.Add(this.notesPictureBox);
             this.Controls.Add(this.checkBoxEmpty);
@@ -429,6 +469,7 @@ namespace BFME_LAUNCHER
             ((System.ComponentModel.ISupportInitialize)(this.checkBoxEmpty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkBoxChecked)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.notesPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -456,6 +497,8 @@ namespace BFME_LAUNCHER
         private System.Windows.Forms.PictureBox checkBoxChecked;
         private System.Windows.Forms.PictureBox notesPictureBox;
         private System.Windows.Forms.Button refresh;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button update;
     }
 }
 

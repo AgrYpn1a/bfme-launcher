@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharpUpdate;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,6 +7,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,11 +15,69 @@ using System.Windows.Forms;
 namespace BFME_LAUNCHER
 {
 
-    public partial class Launcher : Form
+    public partial class Launcher : Form, ISharpUpdatable
     {
+        // UPDATER
+        private SharpUpdater updater;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            updater.DoUpdate();
+        }
+
+        #region SharpUpdate
+        public string ApplicationName
+        {
+            get { return "BfmeLauncher"; }
+        }
+
+        public string ApplicationID
+        {
+            get { return "BfmeLauncher"; }
+        }
+
+        public Assembly ApplicationAssembly
+        {
+            get { return Assembly.GetExecutingAssembly(); }
+        }
+
+        public Icon ApplicationIcon
+        {
+            get { return this.Icon; }
+        }
+
+        public Uri UpdateXmlLocation
+        {
+            get { return new Uri("https://www.dropbox.com/s/px5wxkvjccnkfr4/update.xml?dl=1"); }
+        }
+
+        public Form Context
+        {
+            get { return this; }
+        }
+        #endregion
+
+
+
+
+
+
+
+
+
+
+        // MAIN FORM
+
         public Launcher()
         {
             InitializeComponent();
+
+            // fix button white borders
+            update.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+            Play.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+            Install.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+            Minimize.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+            Close.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
         }
 
 
@@ -65,10 +125,10 @@ namespace BFME_LAUNCHER
         {
 
             this.startPoint = e.Location;
-            
+
             this.drag = true;
 
-            
+
 
         }
 
@@ -87,7 +147,7 @@ namespace BFME_LAUNCHER
                 this.Location = p3;
 
             }
-            
+
 
         }
 
@@ -132,7 +192,7 @@ namespace BFME_LAUNCHER
             SelectBFME2.Visible = true;
             SelectBFME1.BringToFront();
             SelectBFME2.BringToFront();
-            ROTWKPb.BringToFront() ;
+            ROTWKPb.BringToFront();
             this.BFME1Pb.BackgroundImage = null;
             this.BFME2Pb.BackgroundImage = null;
             this.ROTWKPb.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.bfmeRotwkActive;
@@ -236,12 +296,12 @@ namespace BFME_LAUNCHER
             this.drag = false;
         }
 
-        
-/*
-    ------------
-    |LOGO-LINKS| >>>>> BEGIN
-    ------------
-*/
+
+        /*
+            ------------
+            |LOGO-LINKS| >>>>> BEGIN
+            ------------
+        */
 
         // T3A mouse events
         private void T3A_Click(object sender, EventArgs e)
@@ -297,11 +357,11 @@ namespace BFME_LAUNCHER
         // EA LOGO END
 
 
-/*
-------------
-|LOGO-LINKS| >>>>>>> END
-------------
-*/
+        /*
+        ------------
+        |LOGO-LINKS| >>>>>>> END
+        ------------
+        */
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -369,22 +429,22 @@ namespace BFME_LAUNCHER
         private void checkBoxChecked_Click(object sender, EventArgs e)
         {
             checkBoxEmpty.BringToFront();
-            
+
         }
 
         private void checkBoxEmpty_Click(object sender, EventArgs e)
         {
             checkBoxChecked.BringToFront();
         }
-        
-        // refresh button
+
+        // REFRESH button, mouse events
         private void refresh_MouseDown(object sender, MouseEventArgs e)
         {
             this.refresh.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.refreshClicked;
             // GET notes
             try
             {
-                var request = WebRequest.Create("http://52.29.87.103:3000/files/news.png");
+                var request = WebRequest.Create("https://www.dropbox.com/s/5wc7wv0m5vz8bzf/news1.png?dl=1");
 
                 using (var response = request.GetResponse())
                 using (var stream = response.GetResponseStream())
@@ -402,7 +462,36 @@ namespace BFME_LAUNCHER
         {
             this.refresh.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.refresh;
         }
+        // END REFRESH button
+
+        // UPDATE button, mouse events
+        private void update_MouseEnter(object sender, EventArgs e)
+        {
+            this.update.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.updateHover;
+        }
+
+        private void update_MouseLeave(object sender, EventArgs e)
+        {
+            this.update.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.update;
+        }
+
+        private void update_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.update.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.updateHover;
+        }
+
+        private void update_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.update.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.updateClicked;
+            updater = new SharpUpdater(this);
+            updater.DoUpdate();
+        }
+        // END UPDATE button
+        
     }
+
+
+
 }
 
 // This comment should not be changed

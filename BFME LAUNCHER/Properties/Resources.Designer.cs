@@ -133,6 +133,16 @@ namespace BFME_LAUNCHER.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bfmeProfile {
+            get {
+                object obj = ResourceManager.GetObject("bfmeProfile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bfmeRotwkActive {
             get {
                 object obj = ResourceManager.GetObject("bfmeRotwkActive", resourceCulture);
@@ -176,16 +186,6 @@ namespace BFME_LAUNCHER.Properties {
         internal static System.Drawing.Bitmap bfmeteamHover {
             get {
                 object obj = ResourceManager.GetObject("bfmeteamHover", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap buttonBackgrounds {
-            get {
-                object obj = ResourceManager.GetObject("buttonBackgrounds", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -476,6 +476,26 @@ namespace BFME_LAUNCHER.Properties {
         internal static System.Drawing.Bitmap updateClicked {
             get {
                 object obj = ResourceManager.GetObject("updateClicked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap updateHover {
+            get {
+                object obj = ResourceManager.GetObject("updateHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap version {
+            get {
+                object obj = ResourceManager.GetObject("version", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

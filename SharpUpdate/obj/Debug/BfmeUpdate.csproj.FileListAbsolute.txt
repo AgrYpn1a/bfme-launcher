@@ -1,0 +1,10 @@
+D:\gamedev\bfme online edition dev stuff\Bfme Launcher Project\SharpUpdate\obj\Debug\BfmeL_Update.Properties.Resources.resources
+D:\gamedev\bfme online edition dev stuff\Bfme Launcher Project\SharpUpdate\obj\Debug\SharpUpdate.SharpUpdateAcceptForm.resources
+D:\gamedev\bfme online edition dev stuff\Bfme Launcher Project\SharpUpdate\obj\Debug\SharpUpdate.SharpUpdateDownloadForm.resources
+D:\gamedev\bfme online edition dev stuff\Bfme Launcher Project\SharpUpdate\obj\Debug\SharpUpdate.SharpUpdateInfoForm.resources
+D:\gamedev\bfme online edition dev stuff\Bfme Launcher Project\SharpUpdate\obj\Debug\BfmeUpdate.csproj.GenerateResource.Cache
+D:\gamedev\bfme online edition dev stuff\Bfme Launcher Project\SharpUpdate\bin\Debug\BfmeL_Update.dll
+D:\gamedev\bfme online edition dev stuff\Bfme Launcher Project\SharpUpdate\bin\Debug\BfmeL_Update.pdb
+D:\gamedev\bfme online edition dev stuff\Bfme Launcher Project\SharpUpdate\obj\Debug\BfmeL_Update.dll
+D:\gamedev\bfme online edition dev stuff\Bfme Launcher Project\SharpUpdate\obj\Debug\BfmeL_Update.pdb
+D:\gamedev\bfme online edition dev stuff\Bfme Launcher Project\SharpUpdate\obj\Debug\BfmeUpdate.csprojResolveAssemblyReference.cache
