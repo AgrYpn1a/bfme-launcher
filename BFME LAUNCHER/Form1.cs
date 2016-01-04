@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
@@ -487,11 +488,157 @@ namespace BFME_LAUNCHER
             updater.DoUpdate();
         }
         // END UPDATE button
-        
+        public void getFilesize()
+
+        {
+
+            string URL = "https://www.dropbox.com/s/6zswemo1zhko3mg/The%20Battle%20for%20Middle-earth%20Online%20Edition.exe?dl=1";
+            string filetype = URL.Substring(URL.LastIndexOf(".") + 1,
+                    (URL.Length - URL.LastIndexOf(".") - 1));
+
+            string filename = URL.Substring(URL.LastIndexOf("/") + 1,
+                    (URL.Length - URL.LastIndexOf("/") - 1));
+
+            System.Net.WebRequest req = System.Net.HttpWebRequest.Create(URL);
+            req.Method = "HEAD";
+            System.Net.WebResponse resp = req.GetResponse();
+
+            if (long.TryParse(resp.Headers.Get("Content-Length"), out ContentLength))
+            {
+
+                double s3 = ContentLength;
+
+
+            }
+        }
+        //Get filesize from the link
+        public long ContentLength;
+        //global variable declared for file size
+        public void pb()
+        {
+
+            const string fileName = @"setup.exe";
+            FileInfo f = new FileInfo(fileName);
+            double s1 = f.Length;
+
+            double result;
+            result = (s1 / ContentLength) * 100;
+            int r = (int)result;
+            string s2 = r.ToString();
+
+            s1 = f.Length;
+            result = (s1 / ContentLength) * 100;
+            r = (int)result;
+
+            backgroundWorker1.ReportProgress(r);
+
+
+        }//get progressbar , r is the percentage of download, s1 is bytes downloaded
+
+        public void downloadFile(string sourceURL, string destinationPath)
+        {
+
+
+
+            long fileSize = 0;
+            int bufferSize = 1024;
+            bufferSize *= 1000;
+            long existLen = 0;
+
+            System.IO.FileStream saveFileStream;
+            if (System.IO.File.Exists(destinationPath))
+            {
+                System.IO.FileInfo destinationFileInfo = new System.IO.FileInfo(destinationPath);
+                existLen = destinationFileInfo.Length;
+            }
+
+            if (existLen > 0)
+                saveFileStream = new System.IO.FileStream(destinationPath,
+                                                          System.IO.FileMode.Append,
+                                                          System.IO.FileAccess.Write,
+                                                          System.IO.FileShare.ReadWrite);
+            else
+                saveFileStream = new System.IO.FileStream(destinationPath,
+                                                          System.IO.FileMode.Create,
+                                                          System.IO.FileAccess.Write,
+                                                          System.IO.FileShare.ReadWrite);
+
+            System.Net.HttpWebRequest httpReq;
+            System.Net.HttpWebResponse httpRes;
+            httpReq = (System.Net.HttpWebRequest)System.Net.HttpWebRequest.Create(sourceURL);
+            httpReq.AddRange((int)existLen);
+            System.IO.Stream resStream;
+            httpRes = (System.Net.HttpWebResponse)httpReq.GetResponse();
+            resStream = httpRes.GetResponseStream();
+
+            fileSize = httpRes.ContentLength;
+
+            int byteSize;
+            byte[] downBuffer = new byte[bufferSize];
+
+            while ((byteSize = resStream.Read(downBuffer, 0, downBuffer.Length)) > 0 && pause==0)
+            {
+                
+                    saveFileStream.Write(downBuffer, 0, byteSize);
+                    pb();
+                
+                
+            }
+            pause = 0;
+            return;
+        }
+        //download the file with pause option.
+
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            downloadFile("https://www.dropbox.com/s/6zswemo1zhko3mg/The%20Battle%20for%20Middle-earth%20Online%20Edition.exe?dl=1", @"setup.exe");
+            return;
+
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void but_Play_Click(object sender, EventArgs e)
+        {
+            if (backgroundWorker1.IsBusy != true)
+            {
+                //pause = 0;
+                getFilesize();
+                backgroundWorker1.RunWorkerAsync();
+            }
+        }
+
+        private void Install_Click(object sender, EventArgs e)
+        {
+            if (backgroundWorker1.IsBusy != true)
+            {
+                //pause = 0;
+                getFilesize();
+                backgroundWorker1.RunWorkerAsync();
+            }
+        }
+       public int pause = 0;
+        private void but_Pause_Click(object sender, EventArgs e)
+        {
+            pause = 1;
+                      
+            
+        }
+
+        private void but_Stop_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(@"setup.exe"))
+            {
+                File.Delete(@"setup.exe");
+            }
+
+
+        }
     }
-
-
-
 }
 
 // This comment should not be changed

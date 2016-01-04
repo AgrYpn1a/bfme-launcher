@@ -8,3 +8,13 @@ D:\gamedev\bfme online edition dev stuff\Bfme Launcher Project\SharpUpdate\bin\D
 D:\gamedev\bfme online edition dev stuff\Bfme Launcher Project\SharpUpdate\obj\Debug\BfmeL_Update.dll
 D:\gamedev\bfme online edition dev stuff\Bfme Launcher Project\SharpUpdate\obj\Debug\BfmeL_Update.pdb
 D:\gamedev\bfme online edition dev stuff\Bfme Launcher Project\SharpUpdate\obj\Debug\BfmeUpdate.csprojResolveAssemblyReference.cache
+C:\Users\Paramartha Saha\Desktop\BFME PROJECT\SharpUpdate\bin\Debug\BfmeL_Update.dll
+C:\Users\Paramartha Saha\Desktop\BFME PROJECT\SharpUpdate\bin\Debug\BfmeL_Update.pdb
+C:\Users\Paramartha Saha\Desktop\BFME PROJECT\SharpUpdate\obj\Debug\BfmeUpdate.csprojResolveAssemblyReference.cache
+C:\Users\Paramartha Saha\Desktop\BFME PROJECT\SharpUpdate\obj\Debug\BfmeL_Update.Properties.Resources.resources
+C:\Users\Paramartha Saha\Desktop\BFME PROJECT\SharpUpdate\obj\Debug\SharpUpdate.SharpUpdateAcceptForm.resources
+C:\Users\Paramartha Saha\Desktop\BFME PROJECT\SharpUpdate\obj\Debug\SharpUpdate.SharpUpdateDownloadForm.resources
+C:\Users\Paramartha Saha\Desktop\BFME PROJECT\SharpUpdate\obj\Debug\SharpUpdate.SharpUpdateInfoForm.resources
+C:\Users\Paramartha Saha\Desktop\BFME PROJECT\SharpUpdate\obj\Debug\BfmeUpdate.csproj.GenerateResource.Cache
+C:\Users\Paramartha Saha\Desktop\BFME PROJECT\SharpUpdate\obj\Debug\BfmeL_Update.dll
+C:\Users\Paramartha Saha\Desktop\BFME PROJECT\SharpUpdate\obj\Debug\BfmeL_Update.pdb
