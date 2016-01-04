@@ -488,10 +488,13 @@ namespace BFME_LAUNCHER
             updater.DoUpdate();
         }
         // END UPDATE button
+
+
+
+
+        // GAME DOWNLOADER
         public void getFilesize()
-
         {
-
             string URL = "https://www.dropbox.com/s/6zswemo1zhko3mg/The%20Battle%20for%20Middle-earth%20Online%20Edition.exe?dl=1";
             string filetype = URL.Substring(URL.LastIndexOf(".") + 1,
                     (URL.Length - URL.LastIndexOf(".") - 1));
@@ -505,18 +508,16 @@ namespace BFME_LAUNCHER
 
             if (long.TryParse(resp.Headers.Get("Content-Length"), out ContentLength))
             {
-
                 double s3 = ContentLength;
-
-
             }
         }
+
         //Get filesize from the link
         public long ContentLength;
         //global variable declared for file size
-        public void pb()
-        {
 
+        public void pb(DoWorkEventArgs e)
+        {
             const string fileName = @"setup.exe";
             FileInfo f = new FileInfo(fileName);
             double s1 = f.Length;
@@ -530,15 +531,18 @@ namespace BFME_LAUNCHER
             result = (s1 / ContentLength) * 100;
             r = (int)result;
 
+            if (backgroundWorker1.CancellationPending)
+            {
+                e.Cancel = true;
+                return;
+            }
+
             backgroundWorker1.ReportProgress(r);
 
-
-        }//get progressbar , r is the percentage of download, s1 is bytes downloaded
-
-        public void downloadFile(string sourceURL, string destinationPath)
+        }
+        //get progressbar , r is the percentage of download, s1 is bytes downloaded
+        public void downloadFile(string sourceURL, string destinationPath, DoWorkEventArgs e)
         {
-
-
 
             long fileSize = 0;
             int bufferSize = 1024;
@@ -576,23 +580,19 @@ namespace BFME_LAUNCHER
             int byteSize;
             byte[] downBuffer = new byte[bufferSize];
 
-            while ((byteSize = resStream.Read(downBuffer, 0, downBuffer.Length)) > 0 && pause==0)
+            while ((byteSize = resStream.Read(downBuffer, 0, downBuffer.Length)) > 0 && pause == 0)
             {
-                
-                    saveFileStream.Write(downBuffer, 0, byteSize);
-                    pb();
-                
-                
+                saveFileStream.Write(downBuffer, 0, byteSize);
+                pb(e);
             }
             pause = 0;
             return;
         }
+
         //download the file with pause option.
-
-
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            downloadFile("https://www.dropbox.com/s/6zswemo1zhko3mg/The%20Battle%20for%20Middle-earth%20Online%20Edition.exe?dl=1", @"setup.exe");
+            downloadFile("https://www.dropbox.com/s/6zswemo1zhko3mg/The%20Battle%20for%20Middle-earth%20Online%20Edition.exe?dl=1", @"setup.exe", e);
             return;
 
         }
@@ -619,24 +619,26 @@ namespace BFME_LAUNCHER
                 //pause = 0;
                 getFilesize();
                 backgroundWorker1.RunWorkerAsync();
+                //this.Install.Enabled = false;
             }
         }
-       public int pause = 0;
+        public int pause = 0;
         private void but_Pause_Click(object sender, EventArgs e)
         {
-            pause = 1;
-                      
-            
+            if(backgroundWorker1.IsBusy)
+            {
+                backgroundWorker1.CancelAsync();
+                //pause = 1;
+            }
         }
 
         private void but_Stop_Click(object sender, EventArgs e)
         {
+            backgroundWorker1.CancelAsync();
             if (File.Exists(@"setup.exe"))
             {
                 File.Delete(@"setup.exe");
             }
-
-
         }
     }
 }
