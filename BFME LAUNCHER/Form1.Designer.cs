@@ -54,11 +54,10 @@ namespace BFME_LAUNCHER
             this.refresh = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.update = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.but_Play = new System.Windows.Forms.Button();
-            this.but_Pause = new System.Windows.Forms.Button();
-            this.but_Stop = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnPause = new System.Windows.Forms.Button();
+            this.downloadProgress = new System.Windows.Forms.ProgressBar();
+            this.progressLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MainLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SelectedBG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Info)).BeginInit();
@@ -421,49 +420,37 @@ namespace BFME_LAUNCHER
             this.update.MouseLeave += new System.EventHandler(this.update_MouseLeave);
             this.update.MouseUp += new System.Windows.Forms.MouseEventHandler(this.update_MouseUp);
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(260, 578);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(352, 23);
-            this.progressBar1.TabIndex = 33;
-            // 
-            // but_Play
-            // 
-            this.but_Play.Location = new System.Drawing.Point(313, 608);
-            this.but_Play.Name = "but_Play";
-            this.but_Play.Size = new System.Drawing.Size(75, 23);
-            this.but_Play.TabIndex = 34;
-            this.but_Play.Text = "Play";
-            this.but_Play.UseVisualStyleBackColor = true;
-            this.but_Play.Click += new System.EventHandler(this.but_Play_Click);
-            // 
-            // but_Pause
-            // 
-            this.but_Pause.Location = new System.Drawing.Point(418, 608);
-            this.but_Pause.Name = "but_Pause";
-            this.but_Pause.Size = new System.Drawing.Size(75, 23);
-            this.but_Pause.TabIndex = 35;
-            this.but_Pause.Text = "Pause";
-            this.but_Pause.UseVisualStyleBackColor = true;
-            this.but_Pause.Click += new System.EventHandler(this.but_Pause_Click);
-            // 
-            // but_Stop
-            // 
-            this.but_Stop.Location = new System.Drawing.Point(532, 608);
-            this.but_Stop.Name = "but_Stop";
-            this.but_Stop.Size = new System.Drawing.Size(75, 23);
-            this.but_Stop.TabIndex = 36;
-            this.but_Stop.Text = "Stop";
-            this.but_Stop.UseVisualStyleBackColor = true;
-            this.but_Stop.Click += new System.EventHandler(this.but_Stop_Click);
-            // 
             // backgroundWorker1
             // 
             this.backgroundWorker1.WorkerReportsProgress = true;
             this.backgroundWorker1.WorkerSupportsCancellation = true;
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            // 
+            // btnPause
+            // 
+            this.btnPause.Location = new System.Drawing.Point(363, 593);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(75, 23);
+            this.btnPause.TabIndex = 33;
+            this.btnPause.Text = "Pause";
+            this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
+            // downloadProgress
+            // 
+            this.downloadProgress.Location = new System.Drawing.Point(264, 555);
+            this.downloadProgress.Name = "downloadProgress";
+            this.downloadProgress.Size = new System.Drawing.Size(336, 23);
+            this.downloadProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.downloadProgress.TabIndex = 34;
+            // 
+            // progressLabel
+            // 
+            this.progressLabel.BackColor = System.Drawing.Color.Transparent;
+            this.progressLabel.Location = new System.Drawing.Point(261, 538);
+            this.progressLabel.Name = "progressLabel";
+            this.progressLabel.Size = new System.Drawing.Size(340, 14);
+            this.progressLabel.TabIndex = 35;
+            this.progressLabel.Text = "label1";
             // 
             // Launcher
             // 
@@ -474,10 +461,9 @@ namespace BFME_LAUNCHER
             this.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.mainBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(960, 660);
-            this.Controls.Add(this.but_Stop);
-            this.Controls.Add(this.but_Pause);
-            this.Controls.Add(this.but_Play);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.progressLabel);
+            this.Controls.Add(this.downloadProgress);
+            this.Controls.Add(this.btnPause);
             this.Controls.Add(this.update);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.refresh);
@@ -553,11 +539,10 @@ namespace BFME_LAUNCHER
         private System.Windows.Forms.Button refresh;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button update;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Button but_Play;
-        private System.Windows.Forms.Button but_Pause;
-        private System.Windows.Forms.Button but_Stop;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.ProgressBar downloadProgress;
+        private System.Windows.Forms.Label progressLabel;
     }
 }
 
