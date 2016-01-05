@@ -250,4 +250,16 @@
   <data name="version" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\version.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dwPause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dwPause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dwPauseClicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dwPauseClicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dwPlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dwPlay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dwPlayClicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dwPlayClicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

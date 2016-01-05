@@ -155,8 +155,11 @@
     <None Include="Resources\Cave_man.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="favicon.ico" />
     <Content Include="icon.ico" />
+    <None Include="Resources\dwPlayClicked.png" />
+    <None Include="Resources\dwPlay.png" />
+    <None Include="Resources\dwPauseClicked.png" />
+    <None Include="Resources\dwPause.png" />
     <None Include="Resources\bfmeProfile.jpg" />
     <None Include="Resources\updateHover.png" />
     <None Include="Resources\version.png" />

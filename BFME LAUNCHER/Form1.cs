@@ -79,6 +79,8 @@ namespace BFME_LAUNCHER
             Install.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             Minimize.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             Close.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+
+            this.initDownloader();
         }
 
 
@@ -560,7 +562,7 @@ namespace BFME_LAUNCHER
             this.Percentage.Text = s2;
         }
 
-        private void but_Play_Click(object sender, EventArgs e)
+        private void btnDwPlay_Click(object sender, EventArgs e)
         {
             string ApplicationPath = "BFME Download.exe";
             string ApplicationArguments = "-c -x";
@@ -589,6 +591,19 @@ namespace BFME_LAUNCHER
             backgroundWorker1.ReportProgress(r);
 
         }
+
+        private void btnDwPlay_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.btnDwPlay.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.dwPlay;
+        }
+
+        private void btnDwPlay_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.btnDwPlay.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.dwPlayClicked;
+        }
+
+
+
         public int f = 0;//flag for async work
         private void Install_Click(object sender, EventArgs e)
         {
@@ -621,10 +636,6 @@ namespace BFME_LAUNCHER
            
                 
             this.Install.Visible = false;
-            
-
-
-
 
         }
         
@@ -637,6 +648,18 @@ namespace BFME_LAUNCHER
             }
             
         }
+
+        private void btnDwPause_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.btnDwPause.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.dwPauseClicked;
+        }
+
+        private void btnDwPause_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.btnDwPause.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.dwPause;
+        }
+
+
 
         private void but_Stop_Click(object sender, EventArgs e)
         {
@@ -658,7 +681,13 @@ namespace BFME_LAUNCHER
             // backgroundWorker1.ReportProgress(0);
         }
 
-       
+
+        private void initDownloader()
+        {
+            btnDwPause.Enabled = false;
+            btnDwPause.Visible = false;
+        }
+
     }
 }
 

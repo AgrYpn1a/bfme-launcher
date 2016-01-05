@@ -55,11 +55,12 @@ namespace BFME_LAUNCHER
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.update = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.but_Play = new System.Windows.Forms.Button();
             this.but_Pause = new System.Windows.Forms.Button();
             this.but_Stop = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Percentage = new System.Windows.Forms.Label();
+            this.btnDwPlay = new System.Windows.Forms.Button();
+            this.btnDwPause = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.MainLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SelectedBG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Info)).BeginInit();
@@ -90,7 +91,7 @@ namespace BFME_LAUNCHER
             this.Play.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Play.ForeColor = System.Drawing.Color.Transparent;
-            this.Play.Location = new System.Drawing.Point(788, 535);
+            this.Play.Location = new System.Drawing.Point(789, 535);
             this.Play.Margin = new System.Windows.Forms.Padding(0);
             this.Play.Name = "Play";
             this.Play.Size = new System.Drawing.Size(144, 83);
@@ -268,7 +269,7 @@ namespace BFME_LAUNCHER
             this.EALogo.BackColor = System.Drawing.Color.Transparent;
             this.EALogo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EALogo.Image = global::BFME_LAUNCHER.Properties.Resources.ea;
-            this.EALogo.Location = new System.Drawing.Point(168, 547);
+            this.EALogo.Location = new System.Drawing.Point(164, 547);
             this.EALogo.Name = "EALogo";
             this.EALogo.Size = new System.Drawing.Size(70, 69);
             this.EALogo.TabIndex = 24;
@@ -282,7 +283,7 @@ namespace BFME_LAUNCHER
             this.T3A.BackColor = System.Drawing.Color.Transparent;
             this.T3A.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.t3a;
             this.T3A.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.T3A.Location = new System.Drawing.Point(12, 555);
+            this.T3A.Location = new System.Drawing.Point(8, 555);
             this.T3A.Name = "T3A";
             this.T3A.Size = new System.Drawing.Size(60, 47);
             this.T3A.TabIndex = 25;
@@ -297,7 +298,7 @@ namespace BFME_LAUNCHER
             this.BFMETeam.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BFMETeam.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BFMETeam.Image = global::BFME_LAUNCHER.Properties.Resources.bfmeteam;
-            this.BFMETeam.Location = new System.Drawing.Point(72, 533);
+            this.BFMETeam.Location = new System.Drawing.Point(70, 533);
             this.BFMETeam.Name = "BFMETeam";
             this.BFMETeam.Size = new System.Drawing.Size(93, 93);
             this.BFMETeam.TabIndex = 26;
@@ -318,7 +319,7 @@ namespace BFME_LAUNCHER
             this.Install.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Install.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Install.ForeColor = System.Drawing.Color.Transparent;
-            this.Install.Location = new System.Drawing.Point(632, 569);
+            this.Install.Location = new System.Drawing.Point(644, 569);
             this.Install.Margin = new System.Windows.Forms.Padding(0);
             this.Install.Name = "Install";
             this.Install.Size = new System.Drawing.Size(143, 49);
@@ -335,7 +336,7 @@ namespace BFME_LAUNCHER
             this.checkBoxEmpty.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxEmpty.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBoxEmpty.Image = global::BFME_LAUNCHER.Properties.Resources.checkBoxEmpty;
-            this.checkBoxEmpty.Location = new System.Drawing.Point(913, 619);
+            this.checkBoxEmpty.Location = new System.Drawing.Point(912, 619);
             this.checkBoxEmpty.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxEmpty.Name = "checkBoxEmpty";
             this.checkBoxEmpty.Size = new System.Drawing.Size(27, 27);
@@ -348,7 +349,7 @@ namespace BFME_LAUNCHER
             this.checkBoxChecked.BackColor = System.Drawing.Color.Transparent;
             this.checkBoxChecked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBoxChecked.Image = global::BFME_LAUNCHER.Properties.Resources.checkBoxChecked;
-            this.checkBoxChecked.Location = new System.Drawing.Point(913, 619);
+            this.checkBoxChecked.Location = new System.Drawing.Point(912, 619);
             this.checkBoxChecked.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxChecked.Name = "checkBoxChecked";
             this.checkBoxChecked.Size = new System.Drawing.Size(27, 27);
@@ -410,7 +411,7 @@ namespace BFME_LAUNCHER
             this.update.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.update.ForeColor = System.Drawing.Color.Transparent;
-            this.update.Location = new System.Drawing.Point(693, 534);
+            this.update.Location = new System.Drawing.Point(705, 534);
             this.update.Margin = new System.Windows.Forms.Padding(0);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(79, 27);
@@ -424,24 +425,14 @@ namespace BFME_LAUNCHER
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(260, 578);
+            this.progressBar1.Location = new System.Drawing.Point(250, 585);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(352, 23);
+            this.progressBar1.Size = new System.Drawing.Size(378, 18);
             this.progressBar1.TabIndex = 33;
-            // 
-            // but_Play
-            // 
-            this.but_Play.Location = new System.Drawing.Point(313, 608);
-            this.but_Play.Name = "but_Play";
-            this.but_Play.Size = new System.Drawing.Size(75, 23);
-            this.but_Play.TabIndex = 34;
-            this.but_Play.Text = "Play";
-            this.but_Play.UseVisualStyleBackColor = true;
-            this.but_Play.Click += new System.EventHandler(this.but_Play_Click);
             // 
             // but_Pause
             // 
-            this.but_Pause.Location = new System.Drawing.Point(418, 608);
+            this.but_Pause.Location = new System.Drawing.Point(465, 523);
             this.but_Pause.Name = "but_Pause";
             this.but_Pause.Size = new System.Drawing.Size(75, 23);
             this.but_Pause.TabIndex = 35;
@@ -451,7 +442,7 @@ namespace BFME_LAUNCHER
             // 
             // but_Stop
             // 
-            this.but_Stop.Location = new System.Drawing.Point(532, 608);
+            this.but_Stop.Location = new System.Drawing.Point(559, 523);
             this.but_Stop.Name = "but_Stop";
             this.but_Stop.Size = new System.Drawing.Size(75, 23);
             this.but_Stop.TabIndex = 36;
@@ -469,11 +460,59 @@ namespace BFME_LAUNCHER
             // Percentage
             // 
             this.Percentage.AutoSize = true;
-            this.Percentage.Location = new System.Drawing.Point(257, 555);
-            
-            this.Percentage.Size = new System.Drawing.Size(62, 13);
+            this.Percentage.BackColor = System.Drawing.Color.Transparent;
+            this.Percentage.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Percentage.Location = new System.Drawing.Point(247, 570);
+            this.Percentage.Name = "Percentage";
+            this.Percentage.Size = new System.Drawing.Size(64, 13);
             this.Percentage.TabIndex = 37;
             this.Percentage.Text = "Percentage";
+            // 
+            // btnDwPlay
+            // 
+            this.btnDwPlay.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.btnDwPlay.BackColor = System.Drawing.Color.Transparent;
+            this.btnDwPlay.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.dwPlay;
+            this.btnDwPlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDwPlay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDwPlay.FlatAppearance.BorderSize = 0;
+            this.btnDwPlay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDwPlay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDwPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDwPlay.ForeColor = System.Drawing.Color.Transparent;
+            this.btnDwPlay.Location = new System.Drawing.Point(240, 606);
+            this.btnDwPlay.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDwPlay.Name = "btnDwPlay";
+            this.btnDwPlay.Size = new System.Drawing.Size(32, 28);
+            this.btnDwPlay.TabIndex = 38;
+            this.btnDwPlay.TabStop = false;
+            this.btnDwPlay.UseVisualStyleBackColor = false;
+            this.btnDwPlay.Click += new System.EventHandler(this.btnDwPlay_Click);
+            this.btnDwPlay.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDwPlay_MouseDown);
+            this.btnDwPlay.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDwPlay_MouseUp);
+            // 
+            // btnDwPause
+            // 
+            this.btnDwPause.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.btnDwPause.BackColor = System.Drawing.Color.Transparent;
+            this.btnDwPause.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.dwPause;
+            this.btnDwPause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDwPause.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDwPause.FlatAppearance.BorderSize = 0;
+            this.btnDwPause.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDwPause.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDwPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDwPause.ForeColor = System.Drawing.Color.Transparent;
+            this.btnDwPause.Location = new System.Drawing.Point(242, 606);
+            this.btnDwPause.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDwPause.Name = "btnDwPause";
+            this.btnDwPause.Size = new System.Drawing.Size(32, 28);
+            this.btnDwPause.TabIndex = 39;
+            this.btnDwPause.TabStop = false;
+            this.btnDwPause.UseVisualStyleBackColor = false;
+            this.btnDwPause.Click += new System.EventHandler(this.but_Pause_Click);
+            this.btnDwPause.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDwPause_MouseDown);
+            this.btnDwPause.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDwPause_MouseUp);
             // 
             // Launcher
             // 
@@ -484,10 +523,11 @@ namespace BFME_LAUNCHER
             this.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.mainBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(960, 660);
+            this.Controls.Add(this.btnDwPause);
+            this.Controls.Add(this.btnDwPlay);
             this.Controls.Add(this.Percentage);
             this.Controls.Add(this.but_Stop);
             this.Controls.Add(this.but_Pause);
-            this.Controls.Add(this.but_Play);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.update);
             this.Controls.Add(this.pictureBox1);
@@ -566,11 +606,12 @@ namespace BFME_LAUNCHER
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button update;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Button but_Play;
         private System.Windows.Forms.Button but_Pause;
         private System.Windows.Forms.Button but_Stop;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label Percentage;
+        private System.Windows.Forms.Button btnDwPlay;
+        private System.Windows.Forms.Button btnDwPause;
     }
 }
 
