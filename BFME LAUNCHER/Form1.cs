@@ -522,26 +522,32 @@ namespace BFME_LAUNCHER
         }
 
         //Get filesize from the link
-        public long ContentLength;
+        public long ContentLength=0;
         //global variable declared for file size
-        public int r;
+        public int r=0;
         public string s2;
+        public double s1;
         public void pb()
         {
-            try {
+            try
+            {
                 const string fileName = @"setup.exe";
                 FileInfo f = new FileInfo(fileName);
-                double s1 = f.Length;
+                if (f.Exists)
+                {
+                    s1 = f.Length;
 
-                double result;
-                result = (s1 / ContentLength) * 100;
-                r = (int)result;
-                s2 = s1.ToString();
-                //MessageBox.Show(s2);
+                    double result;
+                    result = (s1 / ContentLength) * 100;
+                    r = (int)result;
+                    s2 = s1.ToString();
+                    //MessageBox.Show(s2);
 
-                result = (s1 / ContentLength) * 100;
-                r = (int)result;
-                backgroundWorker1.ReportProgress(r);
+                    result = (s1 / ContentLength) * 100;
+                    r = (int)result;
+                    backgroundWorker1.ReportProgress(r);
+                }
+             
             }
             catch
             {
@@ -554,56 +560,73 @@ namespace BFME_LAUNCHER
         
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-
-
-            while (r<=100)
-                pb();
+            if (backgroundWorker1.CancellationPending)
+            {
+                e.Cancel = true;
+            }
+                while (r <= 100)
+                {
+                    pb();
+                }
+            
+                
         }
+        
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             progressBar1.Value = e.ProgressPercentage;
             this.Percentage.Text = s2;
+            
         }
 
         private void btnDwPlay_Click(object sender, EventArgs e)
         {
-            string ApplicationPath = "BFME Download.exe";
-            string ApplicationArguments = "-c -x";
+            if (s1 < ContentLength)
+            {
 
-            // Create a new process object
-            Process ProcessObj = new Process();
+                string ApplicationPath = "BFME Download.exe";
 
-            // StartInfo contains the startup information of
-            // the new process
-            ProcessObj.StartInfo.FileName = ApplicationPath;
-            ProcessObj.StartInfo.Arguments = ApplicationArguments;
+                string ApplicationArguments = "-c -x";
+                // Create a new process object
 
-            // These two optional flags ensure that no DOS window
-            // appears
-            ProcessObj.StartInfo.UseShellExecute = false;
-            ProcessObj.StartInfo.CreateNoWindow = true;
+                Process ProcessObj = new Process();
 
-            // If this option is set the DOS window appears again :-/
-            // ProcessObj.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                // StartInfo contains the startup information of
+                // the new process
+                ProcessObj.StartInfo.FileName = ApplicationPath;
+                ProcessObj.StartInfo.Arguments = ApplicationArguments;
 
-            // This ensures that you get the output from the DOS application
-            ProcessObj.StartInfo.RedirectStandardOutput = true;
+                // These two optional flags ensure that no DOS window
+                // appears
+                ProcessObj.StartInfo.UseShellExecute = false;
+                ProcessObj.StartInfo.CreateNoWindow = true;
 
-            // disable button and make pause available
-            this.btnDwPlay.Enabled = false;
-            this.btnDwPlay.Visible = false;
+                // If this option is set the DOS window appears again :-/
+                // ProcessObj.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
-            btnDwPause.Enabled = true;
-            btnDwPause.Visible = true;
+                // This ensures that you get the output from the DOS application
+                ProcessObj.StartInfo.RedirectStandardOutput = true;
 
-            statusLabel.Text = "Downloading...";
+                // disable button and make pause available
+                this.btnDwPlay.Enabled = false;
+                this.btnDwPlay.Visible = false;
+
+                btnDwPause.Enabled = true;
+                btnDwPause.Visible = true;
+
+                statusLabel.Text = "Downloading...";
 
 
-            // Start the process
-            ProcessObj.Start();
-            backgroundWorker1.ReportProgress(r);
+                // Start the process
+                ProcessObj.Start();
+                backgroundWorker1.ReportProgress(r);
+            }
+            else
+            {
+                MessageBox.Show("Your Download is Already Completed. Are You Sure You Want to Install!");
 
+            }
             
 
         }
@@ -621,54 +644,71 @@ namespace BFME_LAUNCHER
 
 
         public int f = 0;//flag for async work
+        public bool getfs = true;
         private void Install_Click(object sender, EventArgs e)
-        {
-            getFilesize();
-            string ApplicationPath = "BFME Download.exe";
-            string ApplicationArguments = "-c -x";
+        {   
+            if (getfs)
+            {
+                getFilesize();
+                getfs = false;
 
-            // Create a new process object
-            Process ProcessObj = new Process();
+            }
+            if (s1 < ContentLength)
+            {
+                string ApplicationPath = "BFME Download.exe";
+                string ApplicationArguments = "-c -x";
 
-            // StartInfo contains the startup information of
-            // the new process
-            ProcessObj.StartInfo.FileName = ApplicationPath;
-            ProcessObj.StartInfo.Arguments = ApplicationArguments;
+                // Create a new process object
+                Process ProcessObj = new Process();
 
-            // These two optional flags ensure that no DOS window
-            // appears
-            ProcessObj.StartInfo.UseShellExecute = false;
-            ProcessObj.StartInfo.CreateNoWindow = true;
+                // StartInfo contains the startup information of
+                // the new process
+                ProcessObj.StartInfo.FileName = ApplicationPath;
+                ProcessObj.StartInfo.Arguments = ApplicationArguments;
 
-            // If this option is set the DOS window appears again :-/
-            // ProcessObj.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                // These two optional flags ensure that no DOS window
+                // appears
+                ProcessObj.StartInfo.UseShellExecute = false;
+                ProcessObj.StartInfo.CreateNoWindow = true;
 
-            // This ensures that you get the output from the DOS application
-            ProcessObj.StartInfo.RedirectStandardOutput = true;
+                // If this option is set the DOS window appears again :-/
+                // ProcessObj.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
-            // Start the process
-            ProcessObj.Start();
-            
-            statusLabel.Text = "Downloading...";
+                // This ensures that you get the output from the DOS application
+                ProcessObj.StartInfo.RedirectStandardOutput = true;
 
-            // show the downloader
-            downloaderWraper.Visible = true;
+                // Start the process
+                ProcessObj.Start();
 
-            // set button state to unusable
-            this.Install.Enabled = false;
+                statusLabel.Text = "Downloading...";
 
-            // disable button and make pause available
-            this.btnDwPlay.Enabled = false;
-            this.btnDwPlay.Visible = false;
+                // show the downloader
+                downloaderWraper.Visible = true;
 
-            btnDwPause.Enabled = true;
-            btnDwPause.Visible = true;
+                // set button state to unusable
+                this.Install.Enabled = false;
+
+                // disable button and make pause available
+                btnDwPause.Enabled = true;
+                btnDwPause.Visible = true;
+
+                this.btnDwPlay.Enabled = false;
+                this.btnDwPlay.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Your Download is Already Completed. Are You Sure You Want to Install!");
+
+            }
+
+           
 
 
         }
         
         private void but_Pause_Click(object sender, EventArgs e)
         {
+            
             this.btnDwPlay.Enabled = true;
             this.btnDwPlay.Visible = true;
             btnDwPause.Enabled = false;
@@ -699,10 +739,8 @@ namespace BFME_LAUNCHER
 
         private void but_Stop_Click(object sender, EventArgs e)
         {
-            this.downloaderWraper.Visible = false;
-            this.Install.Visible = true;
-            this.Install.Enabled = true;
-
+            backgroundWorker1.CancelAsync();
+            statusLabel.Text = "Cancelling...";
             Process[] processes = Process.GetProcessesByName("BFME Download");
             foreach (var process in processes)
             {
@@ -714,10 +752,15 @@ namespace BFME_LAUNCHER
                 
                 File.Delete(@"setup.exe");
             }
-            r=0;
+            
+            this.downloaderWraper.Visible = false;
+            this.Install.Visible = true;
+            this.Install.Enabled = true;
+
+            r = 0;
             s2 = "0";
             backgroundWorker1.ReportProgress(r);
-           // this.Percentage.Text = "FUCK U";
+           
             // backgroundWorker1.ReportProgress(0);
         }
 

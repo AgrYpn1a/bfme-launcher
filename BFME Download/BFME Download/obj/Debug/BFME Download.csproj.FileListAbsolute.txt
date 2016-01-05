@@ -4,3 +4,6 @@ C:\Users\Paramartha Saha\Documents\Visual Studio 2015\Projects\BFME Download\BFM
 C:\Users\Paramartha Saha\Documents\Visual Studio 2015\Projects\BFME Download\BFME Download\bin\Debug\BFME Download.pdb
 C:\Users\Paramartha Saha\Documents\Visual Studio 2015\Projects\BFME Download\BFME Download\obj\Debug\BFME Download.exe
 C:\Users\Paramartha Saha\Documents\Visual Studio 2015\Projects\BFME Download\BFME Download\obj\Debug\BFME Download.pdb
+C:\Users\Paramartha Saha\Desktop\BFME PROJECT FINAL\BFME Download\BFME Download\bin\Debug\BFME Download.exe.config
+C:\Users\Paramartha Saha\Desktop\BFME PROJECT FINAL\BFME Download\BFME Download\obj\Debug\BFME Download.exe
+C:\Users\Paramartha Saha\Desktop\BFME PROJECT FINAL\BFME Download\BFME Download\obj\Debug\BFME Download.pdb
