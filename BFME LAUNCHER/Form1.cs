@@ -552,7 +552,9 @@ namespace BFME_LAUNCHER
         
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            while(r<=100)
+
+
+            while (r<=100)
             pb();
         }
 
@@ -586,9 +588,21 @@ namespace BFME_LAUNCHER
             // This ensures that you get the output from the DOS application
             ProcessObj.StartInfo.RedirectStandardOutput = true;
 
+            // disable button and make pause available
+            this.btnDwPlay.Enabled = false;
+            this.btnDwPlay.Visible = false;
+
+            btnDwPause.Enabled = true;
+            btnDwPause.Visible = true;
+
+            statusLabel.Text = "Downloading...";
+
+
             // Start the process
             ProcessObj.Start();
             backgroundWorker1.ReportProgress(r);
+
+            
 
         }
 
@@ -633,14 +647,36 @@ namespace BFME_LAUNCHER
             // Start the process
             ProcessObj.Start();
             
-           
-                
+            statusLabel.Text = "Downloading...";
+
+            // show the downloader
+            downloaderWraper.Visible = true;
+
+            // set button state to unusable
+            this.Install.Enabled = false;
+
+            // disable button and make pause available
+            this.btnDwPlay.Enabled = false;
+            this.btnDwPlay.Visible = false;
+
+            btnDwPause.Enabled = true;
+            btnDwPause.Visible = true;
+
+
             this.Install.Visible = false;
 
         }
         
         private void but_Pause_Click(object sender, EventArgs e)
         {
+            this.btnDwPlay.Enabled = true;
+            this.btnDwPlay.Visible = true;
+            btnDwPause.Enabled = false;
+            btnDwPause.Visible = false;
+
+            // update text info
+            statusLabel.Text = "Paused...";
+
             Process[] processes = Process.GetProcessesByName("BFME Download");
             foreach (var process in processes)
             {
@@ -684,8 +720,14 @@ namespace BFME_LAUNCHER
 
         private void initDownloader()
         {
+            // remove border 
+            btnDwPlay.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+            btnDwPause.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+
+
             btnDwPause.Enabled = false;
             btnDwPause.Visible = false;
+
         }
 
     }
