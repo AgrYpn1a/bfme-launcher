@@ -223,6 +223,26 @@ namespace BFME_LAUNCHER.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dwCancel {
+            get {
+                object obj = ResourceManager.GetObject("dwCancel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dwCancelClicked {
+            get {
+                object obj = ResourceManager.GetObject("dwCancelClicked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dwPause {
             get {
                 object obj = ResourceManager.GetObject("dwPause", resourceCulture);

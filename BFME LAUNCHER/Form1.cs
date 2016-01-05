@@ -544,7 +544,9 @@ namespace BFME_LAUNCHER
                 backgroundWorker1.ReportProgress(r);
             }
             catch
-            { }
+            {
+                return;
+            }
         
 
         }
@@ -555,7 +557,7 @@ namespace BFME_LAUNCHER
 
 
             while (r<=100)
-            pb();
+                pb();
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -663,8 +665,6 @@ namespace BFME_LAUNCHER
             btnDwPause.Visible = true;
 
 
-            this.Install.Visible = false;
-
         }
         
         private void but_Pause_Click(object sender, EventArgs e)
@@ -699,6 +699,10 @@ namespace BFME_LAUNCHER
 
         private void but_Stop_Click(object sender, EventArgs e)
         {
+            this.downloaderWraper.Visible = false;
+            this.Install.Visible = true;
+            this.Install.Enabled = true;
+
             Process[] processes = Process.GetProcessesByName("BFME Download");
             foreach (var process in processes)
             {
@@ -717,6 +721,15 @@ namespace BFME_LAUNCHER
             // backgroundWorker1.ReportProgress(0);
         }
 
+        private void btnDwStop_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.btnDwStop.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.dwCancelClicked;
+        }
+
+        private void btnDwStop_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.btnDwStop.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.dwCancel;
+        }
 
         private void initDownloader()
         {
@@ -729,6 +742,7 @@ namespace BFME_LAUNCHER
             btnDwPause.Visible = false;
 
         }
+
 
     }
 }

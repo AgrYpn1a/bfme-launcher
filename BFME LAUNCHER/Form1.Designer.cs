@@ -56,9 +56,9 @@ namespace BFME_LAUNCHER
             this.update = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.downloaderWraper = new System.Windows.Forms.GroupBox();
+            this.btnDwStop = new System.Windows.Forms.Button();
             this.btnDwPause = new System.Windows.Forms.Button();
             this.btnDwPlay = new System.Windows.Forms.Button();
-            this.but_Stop = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.statusLabel = new System.Windows.Forms.Label();
             this.Percentage = new System.Windows.Forms.Label();
@@ -435,9 +435,9 @@ namespace BFME_LAUNCHER
             // downloaderWraper
             // 
             this.downloaderWraper.BackColor = System.Drawing.Color.Transparent;
+            this.downloaderWraper.Controls.Add(this.btnDwStop);
             this.downloaderWraper.Controls.Add(this.btnDwPause);
             this.downloaderWraper.Controls.Add(this.btnDwPlay);
-            this.downloaderWraper.Controls.Add(this.but_Stop);
             this.downloaderWraper.Controls.Add(this.progressBar1);
             this.downloaderWraper.Controls.Add(this.statusLabel);
             this.downloaderWraper.Controls.Add(this.Percentage);
@@ -450,6 +450,29 @@ namespace BFME_LAUNCHER
             this.downloaderWraper.TabStop = false;
             this.downloaderWraper.Text = "Downloader";
             this.downloaderWraper.Visible = false;
+            // 
+            // btnDwStop
+            // 
+            this.btnDwStop.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.btnDwStop.BackColor = System.Drawing.Color.Transparent;
+            this.btnDwStop.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.dwCancel;
+            this.btnDwStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDwStop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDwStop.FlatAppearance.BorderSize = 0;
+            this.btnDwStop.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDwStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDwStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDwStop.ForeColor = System.Drawing.Color.Transparent;
+            this.btnDwStop.Location = new System.Drawing.Point(31, 62);
+            this.btnDwStop.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDwStop.Name = "btnDwStop";
+            this.btnDwStop.Size = new System.Drawing.Size(30, 28);
+            this.btnDwStop.TabIndex = 47;
+            this.btnDwStop.TabStop = false;
+            this.btnDwStop.UseVisualStyleBackColor = false;
+            this.btnDwStop.Click += new System.EventHandler(this.but_Stop_Click);
+            this.btnDwStop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDwStop_MouseDown);
+            this.btnDwStop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDwStop_MouseUp);
             // 
             // btnDwPause
             // 
@@ -496,16 +519,6 @@ namespace BFME_LAUNCHER
             this.btnDwPlay.Click += new System.EventHandler(this.btnDwPlay_Click);
             this.btnDwPlay.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDwPlay_MouseDown);
             this.btnDwPlay.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDwPlay_MouseUp);
-            // 
-            // but_Stop
-            // 
-            this.but_Stop.Location = new System.Drawing.Point(38, 65);
-            this.but_Stop.Name = "but_Stop";
-            this.but_Stop.Size = new System.Drawing.Size(75, 23);
-            this.but_Stop.TabIndex = 42;
-            this.but_Stop.Text = "Stop";
-            this.but_Stop.UseVisualStyleBackColor = true;
-            this.but_Stop.Click += new System.EventHandler(this.but_Stop_Click);
             // 
             // progressBar1
             // 
@@ -623,10 +636,10 @@ namespace BFME_LAUNCHER
         private System.Windows.Forms.GroupBox downloaderWraper;
         private System.Windows.Forms.Button btnDwPause;
         private System.Windows.Forms.Button btnDwPlay;
-        private System.Windows.Forms.Button but_Stop;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.Label Percentage;
+        private System.Windows.Forms.Button btnDwStop;
     }
 }
 
