@@ -1,5 +1,4 @@
-﻿using FileDownloaderApp;
-using SharpUpdate;
+﻿using SharpUpdate;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -110,6 +109,11 @@ namespace BFME_LAUNCHER
 
         private void Close_Click(object sender, EventArgs e)
         {
+            Process[] processes = Process.GetProcessesByName("BFME Download");
+            foreach (var process in processes)
+            {
+                process.Kill();
+            }
             this.Close.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.quitClicked;
             this.Close();
         }
@@ -213,6 +217,8 @@ namespace BFME_LAUNCHER
             this.BFME2Pb.BackgroundImage = null;
             this.ROTWKPb.BackgroundImage = null;
             this.SelectedBG.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.bfme1Background;
+            getFilesize();
+            backgroundWorker1.RunWorkerAsync();
         }
 
 
@@ -492,67 +498,169 @@ namespace BFME_LAUNCHER
 
 
 
-        // DOWNLOADER ATTEMPT 2
 
-        // setup variables
-        string localDir = "";
-        string downloadFile = "https://www.dropbox.com/s/mk5saoj34ev6eog/bfme-launcher.zip?dl=1";
-
-        private FileDownloader downloader = new FileDownloader();
-
-        private void Install_Click(object sender, EventArgs e)
+        // GAME DOWNLOADER
+        public void getFilesize()
         {
-            FolderBrowserDialog openFolderDialog = new FolderBrowserDialog();
+            string URL = "https://www.dropbox.com/s/mk5saoj34ev6eog/bfme-launcher.zip?dl=1";
+            string filetype = URL.Substring(URL.LastIndexOf(".") + 1,
+                    (URL.Length - URL.LastIndexOf(".") - 1));
 
-            if (openFolderDialog.ShowDialog() == DialogResult.OK)
+            string filename = URL.Substring(URL.LastIndexOf("/") + 1,
+                    (URL.Length - URL.LastIndexOf("/") - 1));
+
+            System.Net.WebRequest req = System.Net.HttpWebRequest.Create(URL);
+            req.Method = "HEAD";
+            System.Net.WebResponse resp = req.GetResponse();
+
+            if (long.TryParse(resp.Headers.Get("Content-Length"), out ContentLength))
             {
-                //set the path to local dir where files will be downloaded
-                downloader.LocalDirectory = openFolderDialog.SelectedPath;
-                // clear the current list of files
-                downloader.Files.Clear();
-                downloader.Files.Add(new FileDownloader.FileInfo(downloadFile));
-
-                // finally start the download
-                downloader.Start();
+                double s3 = ContentLength;
             }
         }
 
-
-        private void btnPause_Click(object sender, EventArgs e)
+        //Get filesize from the link
+        public long ContentLength;
+        //global variable declared for file size
+        public int r;
+        public string s2;
+        public void pb()
         {
-            // pause the download
-            downloader.Pause();
+            try {
+                const string fileName = @"setup.exe";
+                FileInfo f = new FileInfo(fileName);
+                double s1 = f.Length;
+
+                double result;
+                result = (s1 / ContentLength) * 100;
+                r = (int)result;
+                s2 = s1.ToString();
+                //MessageBox.Show(s2);
+
+                result = (s1 / ContentLength) * 100;
+                r = (int)result;
+                backgroundWorker1.ReportProgress(r);
+            }
+            catch
+            { }
+        
+
+        }
+        //get progressbar , r is the percentage of download, s1 is bytes downloaded
+        
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            while(r<=100)
+            pb();
         }
 
-        // This event is fired every time the paused or busy state is changed
-        // and used here to soet the controls of the interface
-        // this makes it equivalent to a void handling both
-        // downloade.IsBusyChanged and downloader.IsPausedChanged
-        private void downloader_StateChanged(object sender, EventArgs e)
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            // enabling or disabling the setting controls
-            MessageBox.Show("Paused!");
+            progressBar1.Value = e.ProgressPercentage;
+            this.Percentage.Text = s2;
         }
 
-        private void downloader_ProgressChanged(object sender, EventArgs e)
+        private void but_Play_Click(object sender, EventArgs e)
         {
-            progressLabel.Text = String.Format("Downloaded {0} of {1} ({2}%)",
-                                                FileDownloader.FormatSizeBinary(downloader.CurrentFileProgress),
-                                                FileDownloader.FormatSizeBinary(downloader.CurrentFileSize),
-                                                downloader.CurrentFilePercentage()) + String.Format(" - {0}/s",
-                                                FileDownloader.FormatSizeBinary(downloader.DownloadSpeed));
+            string ApplicationPath = "BFME Download.exe";
+            string ApplicationArguments = "-c -x";
 
-            downloadProgress.Value = (int)downloader.TotalPercentage();
-            downloader.SupportsProgress = true;
+            // Create a new process object
+            Process ProcessObj = new Process();
+
+            // StartInfo contains the startup information of
+            // the new process
+            ProcessObj.StartInfo.FileName = ApplicationPath;
+            ProcessObj.StartInfo.Arguments = ApplicationArguments;
+
+            // These two optional flags ensure that no DOS window
+            // appears
+            ProcessObj.StartInfo.UseShellExecute = false;
+            ProcessObj.StartInfo.CreateNoWindow = true;
+
+            // If this option is set the DOS window appears again :-/
+            // ProcessObj.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+
+            // This ensures that you get the output from the DOS application
+            ProcessObj.StartInfo.RedirectStandardOutput = true;
+
+            // Start the process
+            ProcessObj.Start();
+            backgroundWorker1.ReportProgress(r);
+
+        }
+        public int f = 0;//flag for async work
+        private void Install_Click(object sender, EventArgs e)
+        {
+            getFilesize();
+            string ApplicationPath = "BFME Download.exe";
+            string ApplicationArguments = "-c -x";
+
+            // Create a new process object
+            Process ProcessObj = new Process();
+
+            // StartInfo contains the startup information of
+            // the new process
+            ProcessObj.StartInfo.FileName = ApplicationPath;
+            ProcessObj.StartInfo.Arguments = ApplicationArguments;
+
+            // These two optional flags ensure that no DOS window
+            // appears
+            ProcessObj.StartInfo.UseShellExecute = false;
+            ProcessObj.StartInfo.CreateNoWindow = true;
+
+            // If this option is set the DOS window appears again :-/
+            // ProcessObj.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+
+            // This ensures that you get the output from the DOS application
+            ProcessObj.StartInfo.RedirectStandardOutput = true;
+
+            // Start the process
+            ProcessObj.Start();
+            
+           
+                
+            this.Install.Visible = false;
+            
+
+
+
+
+        }
+        
+        private void but_Pause_Click(object sender, EventArgs e)
+        {
+            Process[] processes = Process.GetProcessesByName("BFME Download");
+            foreach (var process in processes)
+            {
+                process.Kill();
+            }
+            
         }
 
-        private void downloader_CalculationFileSize(object sender, Int32 fileNr)
+        private void but_Stop_Click(object sender, EventArgs e)
         {
-            progressLabel.Text = String.Format("Calculating file sizes file {0} of {1}",
-                fileNr, downloader.Files.Count);
+            Process[] processes = Process.GetProcessesByName("BFME Download");
+            foreach (var process in processes)
+            {
+                process.Kill();
+                process.WaitForExit();
+            }
+            if (File.Exists(@"setup.exe"))
+            {
+                
+                File.Delete(@"setup.exe");
+            }
+            r=0;
+            s2 = "0";
+            backgroundWorker1.ReportProgress(r);
+           // this.Percentage.Text = "FUCK U";
+            // backgroundWorker1.ReportProgress(0);
         }
 
-        // END
-
+       
     }
 }
+
+// This comment should not be changed
+

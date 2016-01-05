@@ -1,0 +1,6 @@
+c:\users\paramartha saha\documents\visual studio 2015\Projects\BFME Download\BFME Download\bin\Debug\BFME Download.exe.config
+c:\users\paramartha saha\documents\visual studio 2015\Projects\BFME Download\BFME Download\obj\Debug\BFME Download.csprojResolveAssemblyReference.cache
+C:\Users\Paramartha Saha\Documents\Visual Studio 2015\Projects\BFME Download\BFME Download\bin\Debug\BFME Download.exe
+C:\Users\Paramartha Saha\Documents\Visual Studio 2015\Projects\BFME Download\BFME Download\bin\Debug\BFME Download.pdb
+C:\Users\Paramartha Saha\Documents\Visual Studio 2015\Projects\BFME Download\BFME Download\obj\Debug\BFME Download.exe
+C:\Users\Paramartha Saha\Documents\Visual Studio 2015\Projects\BFME Download\BFME Download\obj\Debug\BFME Download.pdb
