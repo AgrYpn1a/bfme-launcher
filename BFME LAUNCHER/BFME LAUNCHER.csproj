@@ -156,6 +156,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\progressBarFull.png" />
+    <None Include="Resources\progressBarEmpty.png" />
+    <None Include="Resources\playDisabled.png" />
+    <None Include="Resources\installDisabled.png" />
     <None Include="Resources\dwCancelClicked.png" />
     <None Include="Resources\dwCancel.png" />
     <None Include="Resources\dwPlayClicked.png" />

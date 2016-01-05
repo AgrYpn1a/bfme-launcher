@@ -333,6 +333,16 @@ namespace BFME_LAUNCHER.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap installDisabled {
+            get {
+                object obj = ResourceManager.GetObject("installDisabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap installHover {
             get {
                 object obj = ResourceManager.GetObject("installHover", resourceCulture);
@@ -433,9 +443,39 @@ namespace BFME_LAUNCHER.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap playDisabled {
+            get {
+                object obj = ResourceManager.GetObject("playDisabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PlayHover {
             get {
                 object obj = ResourceManager.GetObject("PlayHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap progressBarEmpty {
+            get {
+                object obj = ResourceManager.GetObject("progressBarEmpty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap progressBarFull {
+            get {
+                object obj = ResourceManager.GetObject("progressBarFull", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

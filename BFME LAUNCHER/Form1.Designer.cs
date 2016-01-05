@@ -56,10 +56,11 @@ namespace BFME_LAUNCHER
             this.update = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.downloaderWraper = new System.Windows.Forms.GroupBox();
+            this.progBarFill = new System.Windows.Forms.PictureBox();
+            this.progBarEmpty = new System.Windows.Forms.PictureBox();
             this.btnDwStop = new System.Windows.Forms.Button();
             this.btnDwPause = new System.Windows.Forms.Button();
             this.btnDwPlay = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.statusLabel = new System.Windows.Forms.Label();
             this.Percentage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MainLogo)).BeginInit();
@@ -79,6 +80,8 @@ namespace BFME_LAUNCHER
             ((System.ComponentModel.ISupportInitialize)(this.notesPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.downloaderWraper.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progBarFill)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progBarEmpty)).BeginInit();
             this.SuspendLayout();
             // 
             // Play
@@ -435,21 +438,40 @@ namespace BFME_LAUNCHER
             // downloaderWraper
             // 
             this.downloaderWraper.BackColor = System.Drawing.Color.Transparent;
+            this.downloaderWraper.Controls.Add(this.progBarFill);
+            this.downloaderWraper.Controls.Add(this.progBarEmpty);
             this.downloaderWraper.Controls.Add(this.btnDwStop);
             this.downloaderWraper.Controls.Add(this.btnDwPause);
             this.downloaderWraper.Controls.Add(this.btnDwPlay);
-            this.downloaderWraper.Controls.Add(this.progressBar1);
             this.downloaderWraper.Controls.Add(this.statusLabel);
             this.downloaderWraper.Controls.Add(this.Percentage);
             this.downloaderWraper.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.downloaderWraper.ForeColor = System.Drawing.Color.White;
-            this.downloaderWraper.Location = new System.Drawing.Point(240, 540);
+            this.downloaderWraper.Location = new System.Drawing.Point(240, 519);
             this.downloaderWraper.Name = "downloaderWraper";
-            this.downloaderWraper.Size = new System.Drawing.Size(401, 102);
+            this.downloaderWraper.Size = new System.Drawing.Size(401, 129);
             this.downloaderWraper.TabIndex = 41;
             this.downloaderWraper.TabStop = false;
             this.downloaderWraper.Text = "Downloader";
             this.downloaderWraper.Visible = false;
+            // 
+            // progBarFill
+            // 
+            this.progBarFill.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.progressBarFull;
+            this.progBarFill.Location = new System.Drawing.Point(30, 47);
+            this.progBarFill.Name = "progBarFill";
+            this.progBarFill.Size = new System.Drawing.Size(0, 54);
+            this.progBarFill.TabIndex = 49;
+            this.progBarFill.TabStop = false;
+            // 
+            // progBarEmpty
+            // 
+            this.progBarEmpty.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.progressBarEmpty;
+            this.progBarEmpty.Location = new System.Drawing.Point(2, 47);
+            this.progBarEmpty.Name = "progBarEmpty";
+            this.progBarEmpty.Size = new System.Drawing.Size(395, 56);
+            this.progBarEmpty.TabIndex = 48;
+            this.progBarEmpty.TabStop = false;
             // 
             // btnDwStop
             // 
@@ -463,7 +485,7 @@ namespace BFME_LAUNCHER
             this.btnDwStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnDwStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDwStop.ForeColor = System.Drawing.Color.Transparent;
-            this.btnDwStop.Location = new System.Drawing.Point(31, 62);
+            this.btnDwStop.Location = new System.Drawing.Point(61, 99);
             this.btnDwStop.Margin = new System.Windows.Forms.Padding(0);
             this.btnDwStop.Name = "btnDwStop";
             this.btnDwStop.Size = new System.Drawing.Size(30, 28);
@@ -486,7 +508,7 @@ namespace BFME_LAUNCHER
             this.btnDwPause.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnDwPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDwPause.ForeColor = System.Drawing.Color.Transparent;
-            this.btnDwPause.Location = new System.Drawing.Point(5, 62);
+            this.btnDwPause.Location = new System.Drawing.Point(35, 99);
             this.btnDwPause.Margin = new System.Windows.Forms.Padding(0);
             this.btnDwPause.Name = "btnDwPause";
             this.btnDwPause.Size = new System.Drawing.Size(30, 28);
@@ -509,7 +531,7 @@ namespace BFME_LAUNCHER
             this.btnDwPlay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnDwPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDwPlay.ForeColor = System.Drawing.Color.Transparent;
-            this.btnDwPlay.Location = new System.Drawing.Point(6, 62);
+            this.btnDwPlay.Location = new System.Drawing.Point(36, 98);
             this.btnDwPlay.Margin = new System.Windows.Forms.Padding(0);
             this.btnDwPlay.Name = "btnDwPlay";
             this.btnDwPlay.Size = new System.Drawing.Size(32, 28);
@@ -520,18 +542,11 @@ namespace BFME_LAUNCHER
             this.btnDwPlay.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnDwPlay_MouseDown);
             this.btnDwPlay.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnDwPlay_MouseUp);
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(13, 41);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(378, 18);
-            this.progressBar1.TabIndex = 41;
-            // 
             // statusLabel
             // 
             this.statusLabel.BackColor = System.Drawing.Color.Transparent;
             this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusLabel.Location = new System.Drawing.Point(10, 12);
+            this.statusLabel.Location = new System.Drawing.Point(38, 17);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(125, 13);
             this.statusLabel.TabIndex = 46;
@@ -541,7 +556,7 @@ namespace BFME_LAUNCHER
             // 
             this.Percentage.BackColor = System.Drawing.Color.Transparent;
             this.Percentage.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Percentage.Location = new System.Drawing.Point(11, 25);
+            this.Percentage.Location = new System.Drawing.Point(39, 30);
             this.Percentage.Name = "Percentage";
             this.Percentage.Size = new System.Drawing.Size(187, 13);
             this.Percentage.TabIndex = 43;
@@ -603,6 +618,8 @@ namespace BFME_LAUNCHER
             ((System.ComponentModel.ISupportInitialize)(this.notesPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.downloaderWraper.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.progBarFill)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progBarEmpty)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -636,10 +653,11 @@ namespace BFME_LAUNCHER
         private System.Windows.Forms.GroupBox downloaderWraper;
         private System.Windows.Forms.Button btnDwPause;
         private System.Windows.Forms.Button btnDwPlay;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.Label Percentage;
         private System.Windows.Forms.Button btnDwStop;
+        private System.Windows.Forms.PictureBox progBarEmpty;
+        private System.Windows.Forms.PictureBox progBarFill;
     }
 }
 

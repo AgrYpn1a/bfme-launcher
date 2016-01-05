@@ -80,6 +80,7 @@ namespace BFME_LAUNCHER
             Minimize.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             Close.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
 
+
             this.initDownloader();
         }
 
@@ -575,7 +576,8 @@ namespace BFME_LAUNCHER
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            progressBar1.Value = e.ProgressPercentage;
+            //progressBar1.Value = e.ProgressPercentage;
+            progBarFill.Width = (int)(e.ProgressPercentage * 3.45f);
             this.Percentage.Text = s2;
             
         }
