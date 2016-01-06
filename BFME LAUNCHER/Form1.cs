@@ -10,6 +10,7 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -58,7 +59,7 @@ namespace BFME_LAUNCHER
         }
         #endregion
 
-
+        private BackgroundWorker m_AsyncWorker = new BackgroundWorker();
 
 
 
@@ -80,7 +81,13 @@ namespace BFME_LAUNCHER
             Minimize.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             Close.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
 
-
+            m_AsyncWorker.WorkerReportsProgress = true;
+            m_AsyncWorker.WorkerSupportsCancellation = true;
+            m_AsyncWorker.ProgressChanged += new ProgressChangedEventHandler
+                            (backgroundWorker1_ProgressChanged);
+            m_AsyncWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler
+                            (backgroundWorker1_RunWorkerCompleted);
+            m_AsyncWorker.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
             this.initDownloader();
         }
 
@@ -164,9 +171,26 @@ namespace BFME_LAUNCHER
         {
             this.drag = false;
         }
+        public string url = "";
+        public string path = "";
+
 
         private void SelectBFME1_Click(object sender, EventArgs e)
         {
+            url = "https://www.dropbox.com/s/mk5saoj34ev6eog/bfme-launcher.zip?dl=1";
+            path = "BFME1.exe";
+            getfs = true;
+            r = 0;
+            Process[] processes = Process.GetProcessesByName("BFME Download");
+            foreach (var process in processes)
+            {
+                process.Kill();
+                process.WaitForExit();
+            }
+            
+            downloaderWraper.Visible = false;
+            Install.Visible = true;
+            Install.Enabled = true;
             SelectBFME1.Visible = false;
             SelectBFME2.Visible = true;
             SelectROTWK.Visible = true;
@@ -181,6 +205,19 @@ namespace BFME_LAUNCHER
 
         private void SelectBFME2_Click(object sender, EventArgs e)
         {
+            url = "https://www.dropbox.com/s/mk5saoj34ev6eog/bfme-launcher.zip?dl=1";
+            path = "BFME2.exe";
+            r = 0;
+            getfs = true;
+            Process[] processes = Process.GetProcessesByName("BFME Download");
+            foreach (var process in processes)
+            {
+                process.Kill();
+                process.WaitForExit();
+            }
+            downloaderWraper.Visible = false;
+            Install.Visible = true;
+            Install.Enabled = true;
             //this.BFME1Pb.Parent = this.BFME2Pb;
             SelectBFME2.Visible = false;
             SelectBFME1.Visible = true;
@@ -196,6 +233,19 @@ namespace BFME_LAUNCHER
 
         private void SelectROTWK_Click(object sender, EventArgs e)
         {
+            url = "https://www.dropbox.com/s/mk5saoj34ev6eog/bfme-launcher.zip?dl=1";
+            path = "ROTWK.exe";
+            r = 0;
+            getfs = true;
+            Process[] processes = Process.GetProcessesByName("BFME Download");
+            foreach (var process in processes)
+            {
+                process.Kill();
+                process.WaitForExit();
+            }
+            downloaderWraper.Visible = false;
+            Install.Visible = true;
+            Install.Enabled = true;
             SelectROTWK.Visible = false;
             SelectBFME1.Visible = true;
             SelectBFME2.Visible = true;
@@ -210,18 +260,20 @@ namespace BFME_LAUNCHER
 
         private void Launcher_Load(object sender, EventArgs e)
         {
+            url = "https://www.dropbox.com/s/mk5saoj34ev6eog/bfme-launcher.zip?dl=1";
+            path = "BFME1.exe";
             SelectBFME1.Visible = false;
             SelectBFME2.Visible = true;
             SelectROTWK.Visible = true;
             SelectBFME2.BringToFront();
             SelectROTWK.BringToFront();
             BFME1Pb.BringToFront();
+            this.downloaderWraper.Visible = false;
             this.BFME1Pb.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.bfme1Active;
             this.BFME2Pb.BackgroundImage = null;
             this.ROTWKPb.BackgroundImage = null;
             this.SelectedBG.BackgroundImage = global::BFME_LAUNCHER.Properties.Resources.bfme1Background;
-            getFilesize();
-            backgroundWorker1.RunWorkerAsync();
+            //backgroundWorker1.RunWorkerAsync();
         }
 
 
@@ -532,7 +584,7 @@ namespace BFME_LAUNCHER
         {
             try
             {
-                const string fileName = @"setup.exe";
+                string fileName = path;
                 FileInfo f = new FileInfo(fileName);
                 if (f.Exists)
                 {
@@ -547,6 +599,12 @@ namespace BFME_LAUNCHER
                     result = (s1 / ContentLength) * 100;
                     r = (int)result;
                     backgroundWorker1.ReportProgress(r);
+                    
+                        
+                }
+                else
+                {
+                    r=0;
                 }
              
             }
@@ -557,20 +615,26 @@ namespace BFME_LAUNCHER
         
 
         }
+
         //get progressbar , r is the percentage of download, s1 is bytes downloaded
-        
+        public void visiblity()
+        {
+            this.downloaderWraper.Visible = false;
+        }
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (backgroundWorker1.CancellationPending)
+            //getFilesize();
+
+            while (r < 100)
             {
-                e.Cancel = true;
-            }
-                while (r <= 100)
-                {
-                    pb();
-                }
-            
                 
+
+                    pb();
+                
+            }
+            
+
+
         }
         
 
@@ -579,59 +643,83 @@ namespace BFME_LAUNCHER
             //progressBar1.Value = e.ProgressPercentage;
             progBarFill.Width = (int)(e.ProgressPercentage * 3.45f);
             this.Percentage.Text = s2;
-            
+            if  (s1 == ContentLength)
+            {
+                this.downloaderWraper.Visible = false;
+                
+                DialogResult dialogResult = MessageBox.Show("fickThe Game is Downloaded Do you want to Install Now?", "BFME Launcher", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Process.Start(path);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    this.Install.Visible = true;
+                    this.Install.Enabled = true;
+                }
+                
+                    //return;
+                
+                
+            }
+
         }
 
         private void btnDwPlay_Click(object sender, EventArgs e)
         {
-            if (s1 < ContentLength)
+            if (getfs)
             {
-
-                string ApplicationPath = "BFME Download.exe";
-
-                string ApplicationArguments = "-c -x";
-                // Create a new process object
-
-                Process ProcessObj = new Process();
-
-                // StartInfo contains the startup information of
-                // the new process
-                ProcessObj.StartInfo.FileName = ApplicationPath;
-                ProcessObj.StartInfo.Arguments = ApplicationArguments;
-
-                // These two optional flags ensure that no DOS window
-                // appears
-                ProcessObj.StartInfo.UseShellExecute = false;
-                ProcessObj.StartInfo.CreateNoWindow = true;
-
-                // If this option is set the DOS window appears again :-/
-                // ProcessObj.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-
-                // This ensures that you get the output from the DOS application
-                ProcessObj.StartInfo.RedirectStandardOutput = true;
-
-                // disable button and make pause available
-                this.btnDwPlay.Enabled = false;
-                this.btnDwPlay.Visible = false;
-
-                btnDwPause.Enabled = true;
-                btnDwPause.Visible = true;
-
-                statusLabel.Text = "Downloading...";
-
-
-                // Start the process
-                ProcessObj.Start();
-                backgroundWorker1.ReportProgress(r);
-            }
-            else
-            {
-                MessageBox.Show("Your Download is Already Completed. Are You Sure You Want to Install!");
+                getFilesize();
+                getfs = false;
 
             }
             
+                    string ApplicationPath = "BFME Download.exe";
+                    string ApplicationArguments = "-c -x " + url + " " + path;
 
-        }
+                    // Create a new process object
+                    Process ProcessObj = new Process();
+
+                    // StartInfo contains the startup information of
+                    // the new process
+                    ProcessObj.StartInfo.FileName = ApplicationPath;
+                    ProcessObj.StartInfo.Arguments = ApplicationArguments;
+
+                    // These two optional flags ensure that no DOS window
+                    // appears
+                    ProcessObj.StartInfo.UseShellExecute = false;
+                    ProcessObj.StartInfo.CreateNoWindow = true;
+
+                    // If this option is set the DOS window appears again :-/
+                    // ProcessObj.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+
+                    // This ensures that you get the output from the DOS application
+                    ProcessObj.StartInfo.RedirectStandardOutput = true;
+
+                    // Start the process
+                    ProcessObj.Start();
+
+                    
+
+                    // disable button and make pause available
+                    this.btnDwPlay.Enabled = false;
+                    this.btnDwPlay.Visible = false;
+
+                    btnDwPause.Enabled = true;
+                    btnDwPause.Visible = true;
+
+                    statusLabel.Text = "Downloading...";
+
+
+                    // Start the process
+
+                    //backgroundWorker1.ReportProgress(r);
+                
+                
+
+
+            }
+        
 
         private void btnDwPlay_MouseUp(object sender, MouseEventArgs e)
         {
@@ -647,75 +735,174 @@ namespace BFME_LAUNCHER
 
         public int f = 0;//flag for async work
         public bool getfs = true;
+        public bool getbgwork = true;
         private void Install_Click(object sender, EventArgs e)
-        {   
-            if (getfs)
+        {
+            if (getbgwork)
             {
-                getFilesize();
-                getfs = false;
-
+                backgroundWorker1.RunWorkerAsync();
+                getbgwork = false;
             }
-            if (s1 < ContentLength)
+            if (r != 100)
             {
-                string ApplicationPath = "BFME Download.exe";
-                string ApplicationArguments = "-c -x";
+                if (!File.Exists(path))
+                {
+                    DialogResult dialogResult = MessageBox.Show("fkThe game is not downloaded, do you want to download now?", "BFME Launcher", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        if (getfs)
+                        {
+                            getFilesize();
+                            getfs = false;
+                           
 
-                // Create a new process object
-                Process ProcessObj = new Process();
+                        }
+                        if (getbgwork)
+                        {
+                            backgroundWorker1.RunWorkerAsync();
+                            getbgwork = false;
+                        }
 
-                // StartInfo contains the startup information of
-                // the new process
-                ProcessObj.StartInfo.FileName = ApplicationPath;
-                ProcessObj.StartInfo.Arguments = ApplicationArguments;
 
-                // These two optional flags ensure that no DOS window
-                // appears
-                ProcessObj.StartInfo.UseShellExecute = false;
-                ProcessObj.StartInfo.CreateNoWindow = true;
+                        string ApplicationPath = "BFME Download.exe";
+                        string ApplicationArguments = "-c -x "+url+" "+path;
 
-                // If this option is set the DOS window appears again :-/
-                // ProcessObj.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                        // Create a new process object
+                        Process ProcessObj = new Process();
 
-                // This ensures that you get the output from the DOS application
-                ProcessObj.StartInfo.RedirectStandardOutput = true;
+                        // StartInfo contains the startup information of
+                        // the new process
+                        ProcessObj.StartInfo.FileName = ApplicationPath;
+                        ProcessObj.StartInfo.Arguments = ApplicationArguments;
 
-                // Start the process
-                ProcessObj.Start();
+                        // These two optional flags ensure that no DOS window
+                        // appears
+                        ProcessObj.StartInfo.UseShellExecute = false;
+                        ProcessObj.StartInfo.CreateNoWindow = true;
 
-                statusLabel.Text = "Downloading...";
+                        // If this option is set the DOS window appears again :-/
+                        // ProcessObj.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
 
-                // show the downloader
-                downloaderWraper.Visible = true;
+                        // This ensures that you get the output from the DOS application
+                        ProcessObj.StartInfo.RedirectStandardOutput = true;
 
-                // set button state to unusable
-                this.Install.Enabled = false;
+                        // Start the process
+                        ProcessObj.Start();
 
-                // disable button and make pause available
-                btnDwPause.Enabled = true;
-                btnDwPause.Visible = true;
 
-                this.btnDwPlay.Enabled = false;
-                this.btnDwPlay.Visible = false;
+
+                        statusLabel.Text = "Downloading...";
+
+                        // show the downloader
+                        downloaderWraper.Visible = true;
+
+                        // set button state to unusable
+                        this.Install.Enabled = false;
+
+                        // disable button and make pause available
+                        btnDwPause.Enabled = true;
+                        btnDwPause.Visible = true;
+
+                        this.btnDwPlay.Enabled = false;
+                        this.btnDwPlay.Visible = false;
+
+
+
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+
+                    }
+                }
+                else
+                {
+                    if (getfs)
+                    {
+                        getFilesize();
+                        getfs = false;
+                        
+
+                    }
+                    if (getbgwork)
+                    {
+                        backgroundWorker1.RunWorkerAsync();
+                        getbgwork = false;
+                    }
+                        string ApplicationPath = "BFME Download.exe";
+                    string ApplicationArguments = "-c -x " + url + " " + path;
+
+                    // Create a new process object
+                    Process ProcessObj = new Process();
+
+                    // StartInfo contains the startup information of
+                    // the new process
+                    ProcessObj.StartInfo.FileName = ApplicationPath;
+                    ProcessObj.StartInfo.Arguments = ApplicationArguments;
+
+                    // These two optional flags ensure that no DOS window
+                    // appears
+                    ProcessObj.StartInfo.UseShellExecute = false;
+                    ProcessObj.StartInfo.CreateNoWindow = true;
+
+                    // If this option is set the DOS window appears again :-/
+                    // ProcessObj.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+
+                    // This ensures that you get the output from the DOS application
+                    ProcessObj.StartInfo.RedirectStandardOutput = true;
+
+                    // Start the process
+                    ProcessObj.Start();
+
+
+
+                    statusLabel.Text = "Downloading...";
+
+                    // show the downloader
+                    downloaderWraper.Visible = true;
+
+                    // set button state to unusable
+                    this.Install.Enabled = false;
+
+                    // disable button and make pause available
+                    btnDwPause.Enabled = true;
+                    btnDwPause.Visible = true;
+
+                    this.btnDwPlay.Enabled = false;
+                    this.btnDwPlay.Visible = false;
+                }
             }
             else
-            {
-                MessageBox.Show("Your Download is Already Completed. Are You Sure You Want to Install!");
-
-            }
+                 {
+                    this.downloaderWraper.Visible = false;
+                    DialogResult dialogResult = MessageBox.Show("lllThe Game is Downloaded Do you want to Install Now?", "BFME Launcher", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                    try
+                    {
+                        Process.Start(path);
+                    }
+                    catch { }
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        this.Install.Visible = true;
+                        this.Install.Enabled = true;
+                }
+       }
+                
+ }
+        
 
            
 
 
-        }
+        
         
         private void but_Pause_Click(object sender, EventArgs e)
         {
-            
-            this.btnDwPlay.Enabled = true;
-            this.btnDwPlay.Visible = true;
-            btnDwPause.Enabled = false;
-            btnDwPause.Visible = false;
 
+
+          
             // update text info
             statusLabel.Text = "Paused...";
 
@@ -723,8 +910,18 @@ namespace BFME_LAUNCHER
             foreach (var process in processes)
             {
                 process.Kill();
+                process.WaitForExit();
             }
-            
+            this.btnDwPlay.Enabled = true;
+            this.btnDwPlay.Visible = true;
+            btnDwPause.Enabled = false;
+            btnDwPause.Visible = false;
+           
+           
+
+           
+
+
         }
 
         private void btnDwPause_MouseDown(object sender, MouseEventArgs e)
@@ -741,7 +938,7 @@ namespace BFME_LAUNCHER
 
         private void but_Stop_Click(object sender, EventArgs e)
         {
-            backgroundWorker1.CancelAsync();
+           
             statusLabel.Text = "Cancelling...";
             Process[] processes = Process.GetProcessesByName("BFME Download");
             foreach (var process in processes)
@@ -749,21 +946,22 @@ namespace BFME_LAUNCHER
                 process.Kill();
                 process.WaitForExit();
             }
-            if (File.Exists(@"setup.exe"))
+            if (File.Exists(path))
             {
                 
-                File.Delete(@"setup.exe");
+                File.Delete(path);
             }
             
             this.downloaderWraper.Visible = false;
             this.Install.Visible = true;
             this.Install.Enabled = true;
-
-            r = 0;
-            s2 = "0";
-            backgroundWorker1.ReportProgress(r);
            
-            // backgroundWorker1.ReportProgress(0);
+            r = 0;
+            s1 = 0;
+            s2 = "0";
+           // backgroundWorker1.ReportProgress(r);
+           
+           
         }
 
         private void btnDwStop_MouseDown(object sender, MouseEventArgs e)
@@ -788,7 +986,10 @@ namespace BFME_LAUNCHER
 
         }
 
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
 
+        }
     }
 }
 
